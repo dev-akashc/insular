@@ -1,6 +1,6 @@
-package com.oasisfeng.island
+package com.akash.island
 
 object PersistentService {
 
-	const val SERVICE_INTERFACE = "com.oasisfeng.island.PersistentService"
+	const val SERVICE_INTERFACE = "com.akash.island.PersistentService"
 }

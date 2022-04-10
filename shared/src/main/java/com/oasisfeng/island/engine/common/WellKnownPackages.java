@@ -1,9 +1,9 @@
-package com.oasisfeng.island.engine.common;
+package com.akash.island.engine.common;
 
 /**
  * Information about well known packages.
  *
- * Created by Oasis on 2017/3/11.
+ * Created by Akash on 2017/3/11.
  */
 public class WellKnownPackages {
 	public static final String PACKAGE_GOOGLE_PLAY_SERVICES = "com.google.android.gms";

@@ -1,4 +1,4 @@
-package com.oasisfeng.island.data;
+package com.akash.island.data;
 
 import static android.Manifest.permission.MANAGE_EXTERNAL_STORAGE;
 import static android.Manifest.permission.QUERY_ALL_PACKAGES;
@@ -24,11 +24,11 @@ import android.util.ArrayMap;
 
 import androidx.annotation.Nullable;
 
-import com.oasisfeng.android.util.Suppliers;
-import com.oasisfeng.common.app.AppInfo;
-import com.oasisfeng.island.engine.ClonedHiddenSystemApps;
-import com.oasisfeng.island.util.Hacks;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.util.Suppliers;
+import com.akash.common.app.AppInfo;
+import com.akash.island.engine.ClonedHiddenSystemApps;
+import com.akash.island.util.Hacks;
+import com.akash.island.util.Users;
 
 import java.util.List;
 import java.util.Map;
@@ -38,7 +38,7 @@ import java.util.function.Supplier;
 /**
  * Island-specific {@link AppInfo}
  *
- * Created by Oasis on 2016/8/10.
+ * Created by Akash on 2016/8/10.
  */
 public class IslandAppInfo extends AppInfo {
 

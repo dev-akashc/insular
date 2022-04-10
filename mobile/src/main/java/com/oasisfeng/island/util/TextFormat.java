@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.content.Context;
 import android.text.Html;
@@ -10,7 +10,7 @@ import androidx.annotation.StringRes;
 /**
  * Utility class for text format.
  *
- * Created by Oasis on 2017/8/28.
+ * Created by Akash on 2017/8/28.
  */
 public class TextFormat {
 

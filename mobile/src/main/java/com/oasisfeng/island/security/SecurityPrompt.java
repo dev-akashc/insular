@@ -1,4 +1,4 @@
-package com.oasisfeng.island.security;
+package com.akash.island.security;
 
 import android.content.Context;
 import android.os.Handler;
@@ -10,12 +10,12 @@ import androidx.annotation.StringRes;
 import androidx.biometric.BiometricPrompt;
 import androidx.fragment.app.FragmentActivity;
 
-import com.oasisfeng.island.mobile.R;
+import com.akash.island.mobile.R;
 
 /**
  * Security protection based on biometric or lock-screen credentials.
  *
- * Created by Oasis on 2019-1-17.
+ * Created by Akash on 2019-1-17.
  */
 public class SecurityPrompt {
 

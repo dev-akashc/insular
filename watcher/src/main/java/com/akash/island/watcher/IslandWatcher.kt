@@ -1,4 +1,4 @@
-package com.oasisfeng.island.watcher
+package com.akash.island.watcher
 
 import android.app.*
 import android.app.Notification.CATEGORY_PROGRESS
@@ -24,24 +24,19 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.core.content.getSystemService
-import com.oasisfeng.android.widget.Toasts
-import com.oasisfeng.island.IslandNameManager
-import com.oasisfeng.island.home.HomeRole
-import com.oasisfeng.island.notification.NotificationIds
-import com.oasisfeng.island.notification.post
-import com.oasisfeng.island.shuttle.Shuttle
-import com.oasisfeng.island.util.*
-import com.oasisfeng.island.util.Users.Companion.ACTION_USER_INFO_CHANGED
-import com.oasisfeng.island.util.Users.Companion.EXTRA_USER_HANDLE
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.widget.Toasts
+import com.akash.island.IslandNameManager
+import com.akash.island.home.HomeRole
+import com.akash.island.notification.NotificationIds
+import com.akash.island.notification.post
+import com.akash.island.shuttle.Shuttle
+import com.akash.island.util.*
+import com.akash.island.util.Users.Companion.ACTION_USER_INFO_CHANGED
+import com.akash.island.util.Users.Companion.EXTRA_USER_HANDLE
+import com.akash.island.util.Users.Companion.toId
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-/**
- * Watch recently started managed-profile and offer action to stop.
- *
- * Created by Oasis on 2019-2-25.
- */
 @RequiresApi(P) class IslandWatcher : BroadcastReceiver() {
 
 	override fun onReceive(context: Context, intent: Intent) {
@@ -68,9 +63,9 @@ import kotlinx.coroutines.launch
 
 		NotificationIds.IslandWatcher.post(context) {
 			setOngoing(true).setGroup(GROUP).setGroupSummary(true).setCategory(CATEGORY_STATUS).setVisibility(VISIBILITY_PUBLIC)
-			setSmallIcon(com.oasisfeng.island.shared.R.drawable.ic_landscape_black_24dp)
+			setSmallIcon(com.akash.island.shared.R.drawable.ic_landscape_black_24dp)
 			setLargeIcon(Icon.createWithBitmap(getAppIcon(context)))
-			setColor(context.getColor(com.oasisfeng.island.shared.R.color.primary))
+			setColor(context.getColor(com.akash.island.shared.R.color.primary))
 			setContentTitle(context.getString(R.string.notification_island_watcher_title, IslandNameManager.getName(context)))
 			setContentText(context.getText(if (canDeactivate || ! canRestart) R.string.notification_island_watcher_text_for_deactivate
 				else R.string.notification_island_watcher_text_for_restart))
@@ -144,8 +139,8 @@ import kotlinx.coroutines.launch
 		private fun requestQuietMode(profile: UserHandle) {
 			// requestQuietModeEnabled() requires us running as foreground (service).
 			NotificationIds.IslandWatcher.startForeground(this, Notification.Builder(this, null)
-				.setSmallIcon(com.oasisfeng.island.shared.R.drawable.ic_landscape_black_24dp)
-				.setCategory(CATEGORY_PROGRESS).setColor(getColor(com.oasisfeng.island.shared.R.color.primary))
+				.setSmallIcon(com.akash.island.shared.R.drawable.ic_landscape_black_24dp)
+				.setCategory(CATEGORY_PROGRESS).setColor(getColor(com.akash.island.shared.R.color.primary))
 				.setProgress(0, 0, true).setContentTitle("Deactivating Island space..."))
 
 			try { getSystemService<UserManager>()!!.requestQuietModeEnabled(true, profile) }

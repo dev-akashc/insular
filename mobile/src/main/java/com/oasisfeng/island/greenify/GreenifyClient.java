@@ -1,4 +1,4 @@
-package com.oasisfeng.island.greenify;
+package com.akash.island.greenify;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -11,7 +11,7 @@ import android.net.Uri;
 import android.os.UserHandle;
 import android.os.UserManager;
 
-import com.oasisfeng.android.app.Activities;
+import com.akash.android.app.Activities;
 
 import java.util.Objects;
 
@@ -25,11 +25,11 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 /**
  * Client helper for Greenify APIs
  *
- * Created by Oasis on 2016/10/14.
+ * Created by Akash on 2016/10/14.
  */
 public class GreenifyClient {
 
-	private static final String ACTION_GREENIFY = "com.oasisfeng.greenify.action.GREENIFY";
+	private static final String ACTION_GREENIFY = "com.akash.greenify.action.GREENIFY";
 	private static final String EXTRA_CALLER_ID = "caller";
 	private static final int MIN_GREENIFY_VERSION = 306;    // Greenify 3.0 (build 5)
 
@@ -81,6 +81,6 @@ public class GreenifyClient {
 		}
 	}
 
-	private static final String GREENIFY_PKG = "com.oasisfeng.greenify";
+	private static final String GREENIFY_PKG = "com.akash.greenify";
 }
 

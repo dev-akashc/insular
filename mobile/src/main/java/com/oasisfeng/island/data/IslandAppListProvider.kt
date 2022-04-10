@@ -1,4 +1,4 @@
-package com.oasisfeng.island.data
+package com.akash.island.data
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -11,15 +11,15 @@ import android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES
 import android.os.UserHandle
 import android.util.ArrayMap
 import android.util.Log
-import com.oasisfeng.android.content.pm.LauncherAppsCompat
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.common.app.AppListProvider
-import com.oasisfeng.island.data.helper.installed
-import com.oasisfeng.island.engine.ClonedHiddenSystemApps
-import com.oasisfeng.island.provisioning.SystemAppsManager
-import com.oasisfeng.island.util.Users
-import com.oasisfeng.island.util.Users.Companion.isParentProfile
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.content.pm.LauncherAppsCompat
+import com.akash.android.os.UserHandles
+import com.akash.common.app.AppListProvider
+import com.akash.island.data.helper.installed
+import com.akash.island.engine.ClonedHiddenSystemApps
+import com.akash.island.provisioning.SystemAppsManager
+import com.akash.island.util.Users
+import com.akash.island.util.Users.Companion.isParentProfile
+import com.akash.island.util.Users.Companion.toId
 import java.util.function.Predicate
 import java.util.stream.Stream
 import kotlin.streams.asSequence
@@ -27,7 +27,7 @@ import kotlin.streams.asSequence
 /**
  * Island-specific [AppListProvider]
  *
- * Created by Oasis on 2016/8/10.
+ * Created by Akash on 2016/8/10.
  */
 class IslandAppListProvider : AppListProvider<IslandAppInfo>() {
 

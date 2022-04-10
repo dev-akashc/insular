@@ -1,9 +1,9 @@
-package com.oasisfeng.island.data.helper
+package com.akash.island.data.helper
 
 import android.content.pm.ApplicationInfo
 import android.os.UserHandle
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.island.util.Hacks
+import com.akash.android.os.UserHandles
+import com.akash.island.util.Hacks
 
 inline val ApplicationInfo.user: UserHandle get() = UserHandles.getUserHandleForUid(uid)
 inline val ApplicationInfo.userId; get() = UserHandles.getUserId(uid)

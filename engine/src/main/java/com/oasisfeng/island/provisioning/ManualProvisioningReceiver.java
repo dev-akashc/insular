@@ -1,4 +1,4 @@
-package com.oasisfeng.island.provisioning;
+package com.akash.island.provisioning;
 
 import static android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
 import static android.content.pm.PackageManager.DONT_KILL_APP;
@@ -10,17 +10,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Users;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Users;
 
 /**
  * Receiver for starting post-provisioning procedure for manual provisioning.
  *
  * The enabled state of this receiver in managed profile also serves as an indication of pending manual provisioning.
  *
- * Created by Oasis on 2017/4/8.
+ * Created by Akash on 2017/4/8.
  */
-public class ManualProvisioningReceiver extends BroadcastReceiver { // Full class name must start with "com.oasisfeng.island.provision", see MainActivity.onCreateInProfile()
+public class ManualProvisioningReceiver extends BroadcastReceiver { // Full class name must start with "com.akash.island.provision", see MainActivity.onCreateInProfile()
 
 	@Override public void onReceive(final Context context, final Intent intent) {
 		final String action = intent.getAction();

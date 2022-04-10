@@ -1,4 +1,4 @@
-package com.oasisfeng.island.adb;
+package com.akash.island.adb;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
@@ -10,15 +10,15 @@ import android.os.Bundle;
 import android.os.UserManager;
 import android.util.Log;
 
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Users;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Users;
 
 import static android.os.UserManager.DISALLOW_DEBUGGING_FEATURES;
 
 /**
  * Sync certain user restrictions upon profile starting
  *
- * Created by Oasis on 2019-5-24.
+ * Created by Akash on 2019-5-24.
  */
 public class ProfileRestrictionsSync extends BroadcastReceiver {
 

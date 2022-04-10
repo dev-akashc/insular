@@ -6,29 +6,29 @@
     <uses-permission android:name="android.permission.GET_APP_OPS_STATS" tools:ignore="ProtectedPermissions" /> <!-- AppOpsCompat -->
     <uses-permission android:name="${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
-    <application android:name="com.oasisfeng.island.IslandApplication" tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
+    <application android:name="com.akash.island.IslandApplication" tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
 
         <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="false" />
 
-        <provider android:name="com.oasisfeng.island.util.Users"
+        <provider android:name="com.akash.island.util.Users"
                   android:initOrder="1000"
                   android:authorities="${applicationId}.users"
                   android:directBootAware="true"
                   android:exported="false" />
 
-        <activity android:name="com.oasisfeng.island.shuttle.ShuttleCarrierActivity"
+        <activity android:name="com.akash.island.shuttle.ShuttleCarrierActivity"
                   android:theme="@android:style/Theme.Translucent.NoTitleBar"
                   android:directBootAware="true"
                   android:exported="false">
             <intent-filter>
-                <action android:name="com.oasisfeng.island.action.SHUTTLE" />
-                <category android:name="com.oasisfeng.island.category.PARENT_PROFILE" />
+                <action android:name="com.akash.island.action.SHUTTLE" />
+                <category android:name="com.akash.island.category.PARENT_PROFILE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <provider android:authorities="${applicationId}.shuttle" android:exported="false"
-                  android:name="com.oasisfeng.island.shuttle.ShuttleProvider" android:grantUriPermissions="true"
+                  android:name="com.akash.island.shuttle.ShuttleProvider" android:grantUriPermissions="true"
                   android:directBootAware="true" />
 
     </application>

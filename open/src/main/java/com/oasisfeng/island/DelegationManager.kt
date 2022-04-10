@@ -1,4 +1,4 @@
-package com.oasisfeng.island
+package com.akash.island
 
 import android.app.admin.DevicePolicyManager
 import android.os.Build.VERSION.SDK_INT
@@ -6,7 +6,7 @@ import android.os.Build.VERSION_CODES.O
 import android.os.Bundle
 import android.os.UserHandle
 import androidx.annotation.WorkerThread
-import com.oasisfeng.island.util.DevicePolicies
+import com.akash.island.util.DevicePolicies
 import java.util.concurrent.ConcurrentHashMap
 
 /**
@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap
  *
  * TODO: Support authorization granularity by user
  *
- * Created by Oasis on 2019-6-11.
+ * Created by Akash on 2019-6-11.
  */
 class DelegationManager(policies: DevicePolicies) {
 

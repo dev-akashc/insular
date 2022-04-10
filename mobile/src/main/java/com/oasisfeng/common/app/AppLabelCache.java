@@ -1,4 +1,4 @@
-package com.oasisfeng.common.app;
+package com.akash.common.app;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentCallbacks;
@@ -13,14 +13,14 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.oasisfeng.island.util.Hacks;
+import com.akash.island.util.Hacks;
 
 import java.util.Objects;
 
 /**
  * Cache for app labels.
  *
- * Created by Oasis on 2016/8/11.
+ * Created by Akash on 2016/8/11.
  */
 class AppLabelCache implements ComponentCallbacks {
 

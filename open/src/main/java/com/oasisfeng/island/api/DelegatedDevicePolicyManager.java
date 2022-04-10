@@ -1,19 +1,19 @@
-package com.oasisfeng.island.api;
+package com.akash.island.api;
 
 import android.app.admin.DerivedDevicePolicyManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.os.Binder;
 
-import com.oasisfeng.island.ApiConstants;
-import com.oasisfeng.island.RestrictedBinderProxy;
+import com.akash.island.ApiConstants;
+import com.akash.island.RestrictedBinderProxy;
 
 import static android.content.Context.DEVICE_POLICY_SERVICE;
 
 /**
  * Delegated {@link DevicePolicyManager}
  *
- * Created by Oasis on 2019-4-30.
+ * Created by Akash on 2019-4-30.
  */
 public class DelegatedDevicePolicyManager extends DerivedDevicePolicyManager {
 

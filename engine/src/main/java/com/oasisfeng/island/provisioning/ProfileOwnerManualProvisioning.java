@@ -1,19 +1,19 @@
-package com.oasisfeng.island.provisioning;
+package com.akash.island.provisioning;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.oasisfeng.island.provisioning.task.DeleteNonRequiredAppsTask;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.ProfileUser;
-import com.oasisfeng.island.util.Users;
+import com.akash.island.provisioning.task.DeleteNonRequiredAppsTask;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.ProfileUser;
+import com.akash.island.util.Users;
 
-import static com.oasisfeng.island.provisioning.task.DeleteNonRequiredAppsTask.PROFILE_OWNER;
+import static com.akash.island.provisioning.task.DeleteNonRequiredAppsTask.PROFILE_OWNER;
 
 /**
  * Simulate the managed provisioning procedure for manually enabled managed profile.
  *
- * Created by Oasis on 2016/4/18.
+ * Created by Akash on 2016/4/18.
  */
 class ProfileOwnerManualProvisioning {
 

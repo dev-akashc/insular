@@ -1,10 +1,10 @@
-package com.oasisfeng.island.featured;
+package com.akash.island.featured;
 
 import android.app.Application;
 import android.graphics.drawable.Drawable;
 
-import com.oasisfeng.android.databinding.ObservableSortedList;
-import com.oasisfeng.androidx.lifecycle.NonNullMutableLiveData;
+import com.akash.android.databinding.ObservableSortedList;
+import com.akash.androidx.lifecycle.NonNullMutableLiveData;
 
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -15,7 +15,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 /**
- * Created by Oasis on 2018/5/18.
+ * Created by Akash on 2018/5/18.
  */
 public class FeaturedViewModel extends AndroidViewModel implements ObservableSortedList.Sortable<FeaturedViewModel> {
 

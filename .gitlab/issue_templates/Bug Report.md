@@ -1,5 +1,5 @@
 - [ ] This doesn't fall into the followings categories:
-    - bugs that only the upstream have the ability to fix. Report them at https://github.com/oasisfeng/island/issues/new/choose. e.g.
+    - bugs that only the upstream have the ability to fix. Report them at .. e.g.
       - feature requests
       - bugs related to the code rather than packaging
     - bugs that can't be reproduced elsewhere than your phone

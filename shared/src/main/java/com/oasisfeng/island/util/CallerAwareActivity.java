@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 /**
  * Activity with enhanced {@link #getCallingPackage()}, which detects caller even if not started by {@link #startActivityForResult(Intent, int)}.
  *
- * Created by Oasis on 2019-2-27.
+ * Created by Akash.
  */
 public abstract class CallerAwareActivity extends Activity {
 

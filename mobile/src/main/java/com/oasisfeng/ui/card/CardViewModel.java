@@ -1,9 +1,9 @@
-package com.oasisfeng.ui.card;
+package com.akash.ui.card;
 
 import android.content.Context;
 import android.view.View;
 
-import com.oasisfeng.island.mobile.R;
+import com.akash.island.mobile.R;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.StringRes;
@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat;
 /**
  * View-model for card
  *
- * Created by Oasis on 2017/9/7.
+ * Created by Akash on 2017/9/7.
  */
 public class CardViewModel {
 

@@ -1,4 +1,4 @@
-package com.oasisfeng.island.installer
+package com.akash.island.installer
 
 import android.app.Notification
 import android.app.Notification.BigTextStyle
@@ -16,17 +16,17 @@ import android.os.Looper
 import android.os.SystemClock
 import android.os.UserHandle
 import android.provider.Settings
-import com.oasisfeng.android.base.Versions
-import com.oasisfeng.android.content.IntentCompat
-import com.oasisfeng.island.notification.NotificationIds
-import com.oasisfeng.island.util.Users
-import com.oasisfeng.island.util.hasRequestedLegacyExternalStorage
+import com.akash.android.base.Versions
+import com.akash.android.content.IntentCompat
+import com.akash.island.notification.NotificationIds
+import com.akash.island.util.Users
+import com.akash.island.util.hasRequestedLegacyExternalStorage
 
 
 /**
  * Show helper notification about newly installed app.
  *
- * Created by Oasis on 2018-11-16.
+ * Created by Akash on 2018-11-16.
  */
 internal object AppInstallationNotifier {
 
@@ -100,8 +100,8 @@ internal object AppInstallationNotifier {
 
 	@JvmStatic fun showNotification(context: Context, sessionId: Int, title: CharSequence?, decorate: Notification.Builder.() -> Unit = {}) {
 		val n = @Suppress("DEPRECATION") Notification.Builder(context).setContentTitle(title)
-				.setSmallIcon(com.oasisfeng.island.shared.R.drawable.ic_landscape_black_24dp)
-				.setColor(context.getColor(com.oasisfeng.island.shared.R.color.primary))
+				.setSmallIcon(com.akash.island.shared.R.drawable.ic_landscape_black_24dp)
+				.setColor(context.getColor(com.akash.island.shared.R.color.primary))
 		NotificationIds.AppInstallation.post(context, sessionId.toString(), n.apply(decorate))
 	}
 
@@ -125,7 +125,7 @@ internal object AppInstallationNotifier {
 		AppInfoForwarderActivity.markAsLaunchedBySettings(forwarder)    // Otherwise app settings is launched instead.
 		val action = PendingIntent.getActivity(context, 0, forwarder, FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)
 		@Suppress("DEPRECATION") n.setContentIntent(action)
-			.addAction(com.oasisfeng.island.shared.R.drawable.ic_settings_applications_white_24dp,
+			.addAction(com.akash.island.shared.R.drawable.ic_settings_applications_white_24dp,
 				context.getString(R.string.action_show_app_settings), action)
 	}
 

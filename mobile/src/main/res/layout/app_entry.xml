@@ -5,9 +5,9 @@
         xmlns:comment="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.oasisfeng.island.model.AppViewModel.State" />
-        <variable name="apps" type="com.oasisfeng.island.model.AppListViewModel" />
-        <variable name="app" type="com.oasisfeng.island.model.AppViewModel" />
+        <import type="com.akash.island.model.AppViewModel.State" />
+        <variable name="apps" type="com.akash.island.model.AppListViewModel" />
+        <variable name="app" type="com.akash.island.model.AppViewModel" />
     </data>
 
     <FrameLayout

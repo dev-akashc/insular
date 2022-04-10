@@ -1,4 +1,4 @@
-package com.oasisfeng.common.app;
+package com.akash.common.app;
 
 import android.app.Application;
 import android.util.Log;
@@ -8,8 +8,8 @@ import androidx.databinding.ObservableList;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.oasisfeng.android.databinding.ObservableSortedList;
-import com.oasisfeng.island.model.AppViewModel;
+import com.akash.android.databinding.ObservableSortedList;
+import com.akash.island.model.AppViewModel;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * View-model of basic entry-selectable (single-choice) app-list.
  *
- * Created by Oasis on 2016/6/24.
+ * Created by Akash on 2016/6/24.
  */
 public abstract class BaseAppListViewModel<T extends AppViewModel> extends AndroidViewModel {
 

@@ -25,7 +25,7 @@
         <!-- <meta-data android:name="com.google.android.actions" android:resource="@xml/actions" /> -->
 
         <!-- windowSoftInputMode="adjustPan" to avoid bottom-sheet hanging in the center of screen when search is finished and IME panel is closed. -->
-        <activity android:name="com.oasisfeng.island.MainActivity" android:windowSoftInputMode="adjustPan"
+        <activity android:name="com.akash.island.MainActivity" android:windowSoftInputMode="adjustPan"
             android:exported="true" android:directBootAware="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             <intent-filter android:priority="-1"> <!-- Used by IslandProvisioning to launch this activity from Island after successful provisioning -->
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.oasisfeng.island.category.PARENT_PROFILE" />
+                <category android:name="com.akash.island.category.PARENT_PROFILE" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -44,7 +44,7 @@
             <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
         </activity>
 
-        <activity android:name="com.oasisfeng.island.shortcut.IslandAppShortcut$ShortcutLauncher"
+        <activity android:name="com.akash.island.shortcut.IslandAppShortcut$ShortcutLauncher"
             android:hardwareAccelerated="false"
             android:resumeWhilePausing="true"
             android:excludeFromRecents="true"
@@ -54,7 +54,7 @@
             android:exported="true"
             android:launchMode="singleTask" > <!-- Most important attribute: launchMode="singleTask" -->
             <intent-filter>
-                <action android:name="com.oasisfeng.island.action.LAUNCH_APP" />
+                <action android:name="com.akash.island.action.LAUNCH_APP" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="package" />
@@ -65,14 +65,14 @@
 
         <!--<activity android:name="android.__dummy__" android:exported="true" android:icon="@mipmap/ic_dummy" />-->
 
-        <service android:name="com.oasisfeng.island.shortcut.IslandAppShortcut$ShortcutSyncService"
+        <service android:name="com.akash.island.shortcut.IslandAppShortcut$ShortcutSyncService"
                  android:exported="false" android:enabled="@bool/since_api_26">
             <intent-filter>
-                <action android:name="com.oasisfeng.island.PersistentService" />
+                <action android:name="com.akash.island.PersistentService" />
             </intent-filter>
         </service>
 
-        <receiver android:name="com.oasisfeng.island.shortcut.ShortcutsUpdater" android:exported="false">
+        <receiver android:name="com.akash.island.shortcut.ShortcutsUpdater" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
                 <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
@@ -81,9 +81,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.oasisfeng.island.setup.SetupActivity" android:theme="@style/SetupTheme" />
+        <activity android:name="com.akash.island.setup.SetupActivity" android:theme="@style/SetupTheme" />
 
-        <activity android:name="com.oasisfeng.island.action.FeatureActionActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"
+        <activity android:name="com.akash.island.action.FeatureActionActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"
                   android:excludeFromRecents="true" android:exported="true">
             <intent-filter> <!-- Deep-link for App Actions -->
                 <action android:name="android.intent.action.VIEW" />
@@ -94,37 +94,37 @@
         </activity>
 
         <provider android:authorities="${applicationId}.apps"
-                  android:name="com.oasisfeng.island.data.IslandAppListProvider"
+                  android:name="com.akash.island.data.IslandAppListProvider"
                   android:exported="false"
                   android:multiprocess="true" />
 
-        <receiver android:name="com.oasisfeng.island.adb.ProfileRestrictionsSync" android:directBootAware="true" android:exported="false">
+        <receiver android:name="com.akash.island.adb.ProfileRestrictionsSync" android:directBootAware="true" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.oasisfeng.island.settings.IslandSettingsActivity$Enabler" android:exported="false"> <!-- Enable IslandSettingsActivity then disable self -->
+        <receiver android:name="com.akash.island.settings.IslandSettingsActivity$Enabler" android:exported="false"> <!-- Enable IslandSettingsActivity then disable self -->
             <intent-filter>
                 <action android:name="android.intent.action.USER_INITIALIZE" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.oasisfeng.island.IslandNameManager$NameInitializer"
+        <receiver android:name="com.akash.island.IslandNameManager$NameInitializer"
                   android:exported="false" android:directBootAware="true">
             <intent-filter>
                 <action android:name="android.intent.action.USER_INITIALIZE" />
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.oasisfeng.island.settings.SettingsActivity"
+        <activity android:name="com.akash.island.settings.SettingsActivity"
                   android:label="@string/settings_title"
                   android:theme="@style/AppTheme.Settings"
-                  android:parentActivityName="com.oasisfeng.island.MainActivity" />
+                  android:parentActivityName="com.akash.island.MainActivity" />
 
-        <activity android:name="com.oasisfeng.island.settings.IslandSettingsActivity"
+        <activity android:name="com.akash.island.settings.IslandSettingsActivity"
                   android:directBootAware="true"
                   android:label="@string/label_activity_island_settings"
                   android:theme="@style/AppTheme.Settings"
@@ -136,20 +136,20 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.oasisfeng.island.category.MANAGED_PROFILE" />
+                <category android:name="com.akash.island.category.MANAGED_PROFILE" />
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.oasisfeng.island.settings.AppOpsPermissionsUnlock" android:directBootAware="true" android:exported="false">
+        <receiver android:name="com.akash.island.settings.AppOpsPermissionsUnlock" android:directBootAware="true" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <service android:name="com.oasisfeng.island.controller.PrivilegedRemoteWorker" />
+        <service android:name="com.akash.island.controller.PrivilegedRemoteWorker" />
 
-        <provider android:name="com.oasisfeng.shizuku.NonRootShizukuProvider"
+        <provider android:name="com.akash.shizuku.NonRootShizukuProvider"
                   android:authorities="${applicationId}.shizuku"
                   android:multiprocess="false"
                   android:exported="true"

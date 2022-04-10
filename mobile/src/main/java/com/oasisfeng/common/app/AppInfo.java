@@ -1,4 +1,4 @@
-package com.oasisfeng.common.app;
+package com.akash.common.app;
 
 import static android.content.Context.LAUNCHER_APPS_SERVICE;
 import static java.util.Objects.requireNonNull;
@@ -20,10 +20,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 
-import com.oasisfeng.android.util.Suppliers;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.util.Hacks;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.util.Suppliers;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.util.Hacks;
+import com.akash.island.util.Users;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
@@ -34,7 +34,7 @@ import java.util.function.Supplier;
 /**
  * Information about an installed app, more than {@link ApplicationInfo}.
  *
- * Created by Oasis on 2016/8/5.
+ * Created by Akash on 2016/8/5.
  */
 public abstract class AppInfo extends ApplicationInfo {
 

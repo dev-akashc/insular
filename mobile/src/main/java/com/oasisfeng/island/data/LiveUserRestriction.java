@@ -1,4 +1,4 @@
-package com.oasisfeng.island.data;
+package com.akash.island.data;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.os.UserManager;
 
-import com.oasisfeng.island.util.Users;
+import com.akash.island.util.Users;
 
 import androidx.lifecycle.LiveData;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -17,7 +17,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 /**
  * {@link LiveData} for user restriction.
  *
- * Created by Oasis on 2019-1-19.
+ * Created by Akash on 2019-1-19.
  */
 public class LiveUserRestriction extends LiveData<Boolean> {
 

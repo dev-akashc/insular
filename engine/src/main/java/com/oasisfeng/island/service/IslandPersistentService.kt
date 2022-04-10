@@ -1,4 +1,4 @@
-package com.oasisfeng.island.service
+package com.akash.island.service
 
 import android.annotation.SuppressLint
 import android.app.admin.DeviceAdminService
@@ -15,12 +15,12 @@ import android.os.MessageQueue
 import android.os.Process
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.oasisfeng.island.PersistentService
+import com.akash.island.PersistentService
 
 /**
  * Persistent helper service.
  *
- * Created by Oasis on 2019-10-12.
+ * Created by Akash on 2019-10-12.
  */
 @RequiresApi(O) class IslandPersistentService: DeviceAdminService() {       // TODO: Fallback to foreground service for unmanaged user.
 

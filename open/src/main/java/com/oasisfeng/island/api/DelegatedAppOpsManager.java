@@ -1,9 +1,9 @@
-package com.oasisfeng.island.api;
+package com.akash.island.api;
 
 import static android.content.Context.APP_OPS_SERVICE;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.P;
-import static com.oasisfeng.island.ApiConstants.DELEGATION_APP_OPS;
+import static com.akash.island.ApiConstants.DELEGATION_APP_OPS;
 
 import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
@@ -20,21 +20,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import com.oasisfeng.android.annotation.UserIdInt;
-import com.oasisfeng.android.os.UserHandles;
-import com.oasisfeng.hack.Hack;
-import com.oasisfeng.island.RestrictedBinderProxy;
-import com.oasisfeng.island.appops.AppOpsHelper;
-import com.oasisfeng.island.shuttle.Shuttle;
-import com.oasisfeng.island.util.Hacks;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.annotation.UserIdInt;
+import com.akash.android.os.UserHandles;
+import com.akash.hack.Hack;
+import com.akash.island.RestrictedBinderProxy;
+import com.akash.island.appops.AppOpsHelper;
+import com.akash.island.shuttle.Shuttle;
+import com.akash.island.util.Hacks;
+import com.akash.island.util.Users;
 
 import kotlin.Unit;
 
 /**
  * Delegated {@link AppOpsManager}
  *
- * Created by Oasis on 2019-4-30.
+ * Created by Akash on 2019-4-30.
  */
 public class DelegatedAppOpsManager extends DerivedAppOpsManager {
 

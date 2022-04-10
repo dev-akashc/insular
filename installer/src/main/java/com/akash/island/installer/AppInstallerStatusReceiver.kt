@@ -1,4 +1,4 @@
-package com.oasisfeng.island.installer
+package com.akash.island.installer
 
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_MUTABLE
@@ -11,8 +11,8 @@ import android.content.Intent.FLAG_GRANT_WRITE_URI_PERMISSION
 import android.content.pm.PackageInstaller
 import android.os.Bundle
 import android.util.Log
-import com.oasisfeng.island.analytics.Analytics
-import com.oasisfeng.island.util.RomVariants.isMiui
+import com.akash.island.analytics.Analytics
+import com.akash.island.util.RomVariants.isMiui
 
 class AppInstallerStatusReceiver: BroadcastReceiver() {
 

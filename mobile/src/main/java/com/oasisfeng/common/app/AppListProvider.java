@@ -1,4 +1,4 @@
-package com.oasisfeng.common.app;
+package com.akash.common.app;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
@@ -20,8 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.CallbackRegistry;
 
-import com.oasisfeng.android.util.Apps;
-import com.oasisfeng.android.util.Suppliers;
+import com.akash.android.util.Apps;
+import com.akash.android.util.Suppliers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +36,7 @@ import java.util.stream.Stream;
 /**
  * Provider for installed apps
  *
- * Created by Oasis on 2016/7/6.
+ * Created by Akash on 2016/7/6.
  */
 public abstract class AppListProvider<T extends AppInfo> extends ContentProvider {
 
@@ -240,7 +240,7 @@ public abstract class AppListProvider<T extends AppInfo> extends ContentProvider
 
 	/* The normal ContentProvider IPC interface is not used. */
 	@Nullable @Override public Cursor query(final @NonNull Uri uri, final String[] projection, final String selection, final String[] selection_args, final String sort) { return null; }
-	@Nullable @Override public String getType(final @NonNull Uri uri) { return "vnd.android.cursor.dir/vnd.com.oasisfeng.island.apps"; }
+	@Nullable @Override public String getType(final @NonNull Uri uri) { return "vnd.android.cursor.dir/vnd.com.akash.island.apps"; }
 	@Override public @Nullable Uri insert(final @NonNull Uri uri, final ContentValues contentValues) { return null; }
 	@Override public int delete(final @NonNull Uri uri, final String s, final String[] strings) { return 0; }
 	@Override public int update(final @NonNull Uri uri, final ContentValues contentValues, final String s, final String[] strings) { return 0; }

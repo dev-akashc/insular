@@ -1,4 +1,4 @@
-package com.oasisfeng.island.guide;
+package com.akash.island.guide;
 
 import android.app.Activity;
 import android.os.UserHandle;
@@ -14,14 +14,14 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.LifecycleOwner;
 
-import com.oasisfeng.android.base.Scopes;
-import com.oasisfeng.common.app.AppListProvider;
-import com.oasisfeng.island.data.IslandAppInfo;
-import com.oasisfeng.island.data.IslandAppListProvider;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.model.AppListViewModel;
-import com.oasisfeng.island.model.AppViewModel;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.base.Scopes;
+import com.akash.common.app.AppListProvider;
+import com.akash.island.data.IslandAppInfo;
+import com.akash.island.data.IslandAppListProvider;
+import com.akash.island.mobile.R;
+import com.akash.island.model.AppListViewModel;
+import com.akash.island.model.AppViewModel;
+import com.akash.island.util.Users;
 
 import java.util.Collection;
 
@@ -30,7 +30,7 @@ import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 /**
  * Helper for manipulate user guide menu
  *
- * Created by Oasis on 2017/3/14.
+ * Created by Akash on 2017/3/14.
  */
 public class UserGuide {
 

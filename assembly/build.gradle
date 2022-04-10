@@ -15,12 +15,12 @@ else {
 }
 
 android {
-    namespace 'com.oasisfeng.island'
+    namespace 'com.akash.island'
 
     compileSdk this.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.oasisfeng.island"
+        applicationId "com.akash.island"
         minSdkVersion this.minSdkVersion
         targetSdkVersion 33
         resourceConfigurations += ['en', 'zh', 'zh-rTW', 'pt-rBR']

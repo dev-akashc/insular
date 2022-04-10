@@ -1,10 +1,10 @@
-package com.oasisfeng.island.api;
+package com.akash.island.api;
 
 import android.content.Context;
 import android.os.IBinder;
 import android.os.IInterface;
 
-import com.oasisfeng.island.RestrictedBinderProxy;
+import com.akash.island.RestrictedBinderProxy;
 
 import java.lang.reflect.Field;
 import java.util.function.BiFunction;
@@ -12,7 +12,7 @@ import java.util.function.BiFunction;
 import javax.annotation.Nullable;
 
 /**
- * Created by Oasis on 2019-4-30.
+ * Created by Akash on 2019-4-30.
  */
 class DerivedManagerHelper<T> {
 

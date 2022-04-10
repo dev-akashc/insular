@@ -1,15 +1,15 @@
-package com.oasisfeng.island.setup;
+package com.akash.island.setup;
 
 import android.app.Activity;
 import android.os.Bundle;
 
 import com.android.setupwizardlib.util.SystemBarHelper;
-import com.oasisfeng.island.mobile.R;
+import com.akash.island.mobile.R;
 
 /**
  * Island setup wizard
  *
- * Created by Oasis on 2016/9/13.
+ * Created by Akash on 2016/9/13.
  */
 public class SetupActivity extends Activity {
 

@@ -1,16 +1,16 @@
-package com.oasisfeng.island;
+package com.akash.island;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.oasisfeng.island.provisioning.IslandProvisioning;
-import com.oasisfeng.island.util.Users;
+import com.akash.island.provisioning.IslandProvisioning;
+import com.akash.island.util.Users;
 
 /**
  * Handle {@link Intent#ACTION_MY_PACKAGE_REPLACED}
  *
- * Created by Oasis on 2017/7/20.
+ * Created by Akash on 2017/7/20.
  */
 public class AppUpdateReceiver extends BroadcastReceiver {
 

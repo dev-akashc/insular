@@ -1,4 +1,4 @@
-package com.oasisfeng.island.notification;
+package com.akash.island.notification;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -14,7 +14,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.oasisfeng.island.shared.R;
+import com.akash.island.shared.R;
 
 import java.util.function.Consumer;
 
@@ -30,7 +30,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * Central definition for all notification IDs, to avoid conflicts.
  *
- * Created by Oasis on 2016/11/28.
+ * Created by Akash on 2016/11/28.
  */
 public enum NotificationIds {
 

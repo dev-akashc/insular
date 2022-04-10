@@ -1,10 +1,10 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.O_MR1;
 import static android.os.Build.VERSION_CODES.P;
 import static android.os.Build.VERSION_CODES.S;
-import static com.oasisfeng.island.appops.AppOpsCompat.GET_APP_OPS_STATS;
+import static com.akash.island.appops.AppOpsCompat.GET_APP_OPS_STATS;
 
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
@@ -28,11 +28,11 @@ import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 
-import com.oasisfeng.android.annotation.UserIdInt;
-import com.oasisfeng.hack.Hack;
-import com.oasisfeng.hack.Hack.Unchecked;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.shared.BuildConfig;
+import com.akash.android.annotation.UserIdInt;
+import com.akash.hack.Hack;
+import com.akash.hack.Hack.Unchecked;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.shared.BuildConfig;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -43,7 +43,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * All reflection-based hacks should be defined here
  *
- * Created by Oasis on 2016/8/10.
+ * Created by Akash on 2016/8/10.
  */
 public class Hacks {
 

@@ -1,4 +1,4 @@
-package com.oasisfeng.island.api;
+package com.akash.island.api;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Test cases for {@link ApiActivity}
  *
- * Created by Oasis on 2016/7/27.
+ * Created by Akash on 2016/7/27.
  */
 @MediumTest @RunWith(AndroidJUnit4.class)
 public class ApiActivityTest {
@@ -61,7 +61,7 @@ public class ApiActivityTest {
 
 	private static void invokeApiActivityAndReceiver(final int expected_result, Intent intent) throws ExecutionException, InterruptedException {
 		final Context context = getContext();
-		intent = new Intent(intent).setPackage("com.oasisfeng.island.fdroid");
+		intent = new Intent(intent).setPackage("com.akash.island.fdroid");
 
 		final CompletableFuture<Integer> result_code = new CompletableFuture<>();
 		final CompletableFuture<String> result_data = new CompletableFuture<>();

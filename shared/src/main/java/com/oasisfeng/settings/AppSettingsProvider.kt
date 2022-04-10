@@ -1,4 +1,4 @@
-package com.oasisfeng.settings
+package com.akash.settings
 
 import android.content.ComponentName
 import android.content.ContentProvider
@@ -11,7 +11,7 @@ import android.net.Uri
 import android.os.Process
 import android.util.Log
 import androidx.core.content.edit
-import com.oasisfeng.island.shared.BuildConfig
+import com.akash.island.shared.BuildConfig
 
 /**
  * Encapsulate the complexity of building app settings.
@@ -19,7 +19,7 @@ import com.oasisfeng.island.shared.BuildConfig
  * 1. Settings only need to be defined just once, anywhere in your code base (usually within its controller class).
  * 2. Settings storage layer (SharedPreferences) is read from and written to, only through this content provider.
  *
- * Created by Oasis on 2016/7/15.
+ * Created by Akash on 2016/7/15.
  */
 class AppSettingsProvider : ContentProvider() {
 
@@ -83,7 +83,7 @@ class AppSettingsProvider : ContentProvider() {
 		android.preference.PreferenceManager.getDefaultSharedPreferences(context()) }
 }
 
-private const val ACTION_SETTING_CHANGED = "com.oasisfeng.action.SETTING_CHANGED"
+private const val ACTION_SETTING_CHANGED = "com.akash.action.SETTING_CHANGED"
 private const val SCHEME = "setting"
 
 private const val TAG = "SettingsProvider"

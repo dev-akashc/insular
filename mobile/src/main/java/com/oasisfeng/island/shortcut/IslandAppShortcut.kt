@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shortcut
+package com.akash.island.shortcut
 
 import android.app.ActivityManager
 import android.app.Service
@@ -35,32 +35,32 @@ import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
 import androidx.lifecycle.lifecycleScope
-import com.oasisfeng.android.app.LifecycleActivity
-import com.oasisfeng.android.content.pm.LauncherAppsCompat
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.android.widget.Toasts
-import com.oasisfeng.island.analytics.analytics
-import com.oasisfeng.island.data.helper.hidden
-import com.oasisfeng.island.data.helper.installed
-import com.oasisfeng.island.data.helper.user
-import com.oasisfeng.island.data.helper.userId
-import com.oasisfeng.island.engine.IslandManager
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.settings.IslandSettings
-import com.oasisfeng.island.shuttle.Shuttle
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.OwnerUser
-import com.oasisfeng.island.util.ProfileUser
-import com.oasisfeng.island.util.Users
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.app.LifecycleActivity
+import com.akash.android.content.pm.LauncherAppsCompat
+import com.akash.android.os.UserHandles
+import com.akash.android.util.Apps
+import com.akash.android.widget.Toasts
+import com.akash.island.analytics.analytics
+import com.akash.island.data.helper.hidden
+import com.akash.island.data.helper.installed
+import com.akash.island.data.helper.user
+import com.akash.island.data.helper.userId
+import com.akash.island.engine.IslandManager
+import com.akash.island.mobile.R
+import com.akash.island.settings.IslandSettings
+import com.akash.island.shuttle.Shuttle
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.OwnerUser
+import com.akash.island.util.ProfileUser
+import com.akash.island.util.Users
+import com.akash.island.util.Users.Companion.toId
 import kotlinx.coroutines.launch
 import java.net.URISyntaxException
 
 object IslandAppShortcut {
 
-	const val ACTION_LAUNCH_CLONE = "com.oasisfeng.island.action.LAUNCH_CLONE"
-	private const val ACTION_LAUNCH_APP = "com.oasisfeng.island.action.LAUNCH_APP"
+	const val ACTION_LAUNCH_CLONE = "com.akash.island.action.LAUNCH_CLONE"
+	private const val ACTION_LAUNCH_APP = "com.akash.island.action.LAUNCH_APP"
 	private const val SCHEME_PACKAGE = "package"            // Introduced in Island 2.8 (deprecated)
 	private const val SCHEME_ANDROID_APP = "android-app"    // Introduced in Island 5.0 (deprecated)
 	private const val SCHEME_APP = "app"                    // Introduced in Island 5.3 (replacing "android-app" used before to avoid shortcut intent corruption after reboot)

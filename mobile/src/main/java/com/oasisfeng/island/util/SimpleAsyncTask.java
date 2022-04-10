@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.os.AsyncTask;
 import androidx.annotation.WorkerThread;
@@ -6,7 +6,7 @@ import androidx.annotation.WorkerThread;
 /**
  * Simplified {@link AsyncTask} without parameters and result.
  *
- * Created by Oasis on 2016/11/6.
+ * Created by Akash on 2016/11/6.
  */
 public abstract class SimpleAsyncTask extends AsyncTask<Void, Void, Void> {
 

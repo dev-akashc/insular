@@ -1,4 +1,4 @@
-package com.oasisfeng.island.appops;
+package com.akash.island.appops;
 
 import static android.os.Build.VERSION_CODES.P;
 import static java.util.Objects.requireNonNull;
@@ -12,14 +12,14 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RequiresPermission;
 
-import com.oasisfeng.hack.Hack;
-import com.oasisfeng.island.util.Hacks;
-import com.oasisfeng.island.util.Hacks.AppOpsManager.OpEntry;
+import com.akash.hack.Hack;
+import com.akash.island.util.Hacks;
+import com.akash.island.util.Hacks.AppOpsManager.OpEntry;
 
 import java.util.List;
 
 /**
- * Created by Oasis on 2019-3-1.
+ * Created by Akash on 2019-3-1.
  */
 @RequiresApi(P) public class AppOpsCompat {
 

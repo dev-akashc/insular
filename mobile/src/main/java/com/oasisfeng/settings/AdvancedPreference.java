@@ -1,4 +1,4 @@
-package com.oasisfeng.settings;
+package com.akash.settings;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -11,7 +11,7 @@ import androidx.annotation.StringRes;
 /**
  * Improved {@link Preference}
  *
- * Created by Oasis on 2017/3/7.
+ * Created by Akash on 2017/3/7.
  */
 public class AdvancedPreference extends Preference {
 

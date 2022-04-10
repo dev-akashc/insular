@@ -1,17 +1,17 @@
-package com.oasisfeng.island.data.helper;
+package com.akash.island.data.helper;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.UserHandle;
 
-import com.oasisfeng.island.data.IslandAppListProvider;
-import com.oasisfeng.island.util.Users;
+import com.akash.island.data.IslandAppListProvider;
+import com.akash.island.util.Users;
 
 /**
  * Helper for tracking the state of apps.
  *
- * Created by Oasis on 2019-1-23.
+ * Created by Akash on 2019-1-23.
  */
 public class AppStateTrackingHelper {
 

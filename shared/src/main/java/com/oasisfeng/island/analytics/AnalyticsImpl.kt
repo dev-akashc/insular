@@ -1,4 +1,4 @@
-package com.oasisfeng.island.analytics
+package com.akash.island.analytics
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,7 @@ import org.intellij.lang.annotations.Pattern
 /**
  * The analytics implementation in local process
  *
- * Created by Oasis on 2017/3/23.
+ * Created by Akash on 2017/3/23.
  */
 internal class AnalyticsImpl(context: Context) : Analytics {
 

@@ -1,12 +1,12 @@
-package com.oasisfeng.island.home
+package com.akash.island.home
 
 import android.content.Context
 import android.content.pm.PackageManager.*
 import android.content.pm.ResolveInfo
 import android.util.Log
-import com.oasisfeng.hack.Hack
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.Hacks
+import com.akash.hack.Hack
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.Hacks
 import kotlinx.coroutines.delay
 
 object HomeRole {

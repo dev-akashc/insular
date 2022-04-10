@@ -1,6 +1,6 @@
-package com.oasisfeng.island.setup;
+package com.akash.island.setup;
 
-import static com.oasisfeng.island.analytics.Analytics.Param.CONTENT;
+import static com.akash.island.analytics.Analytics.Param.CONTENT;
 import static java.lang.Boolean.FALSE;
 import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.joining;
@@ -24,24 +24,24 @@ import android.provider.Settings;
 
 import androidx.annotation.Nullable;
 
-import com.oasisfeng.android.ui.Dialogs;
-import com.oasisfeng.android.util.SafeAsyncTask;
-import com.oasisfeng.common.app.AppInfo;
-import com.oasisfeng.common.app.AppListProvider;
-import com.oasisfeng.hack.Hack;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.mobile.BuildConfig;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.shuttle.Shuttle;
-import com.oasisfeng.island.util.DeviceAdmins;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Hacks;
-import com.oasisfeng.island.util.Hacks.UserManagerHack;
-import com.oasisfeng.island.util.Hacks.UserManagerHack.UserInfo;
-import com.oasisfeng.island.util.Modules;
-import com.oasisfeng.island.util.OwnerUser;
-import com.oasisfeng.island.util.ProfileUser;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.ui.Dialogs;
+import com.akash.android.util.SafeAsyncTask;
+import com.akash.common.app.AppInfo;
+import com.akash.common.app.AppListProvider;
+import com.akash.hack.Hack;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.mobile.BuildConfig;
+import com.akash.island.mobile.R;
+import com.akash.island.shuttle.Shuttle;
+import com.akash.island.util.DeviceAdmins;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Hacks;
+import com.akash.island.util.Hacks.UserManagerHack;
+import com.akash.island.util.Hacks.UserManagerHack.UserInfo;
+import com.akash.island.util.Modules;
+import com.akash.island.util.OwnerUser;
+import com.akash.island.util.ProfileUser;
+import com.akash.island.util.Users;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,7 +53,7 @@ import eu.chainfire.libsuperuser.Shell;
 /**
  * Implementation of Island / Mainland setup & shutdown.
  *
- * Created by Oasis on 2017/3/8.
+ * Created by Akash on 2017/3/8.
  */
 public class IslandSetup {
 

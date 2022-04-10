@@ -1,4 +1,4 @@
-package com.oasisfeng.island.api;
+package com.akash.island.api;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -9,14 +9,14 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.oasisfeng.android.os.UserHandles;
-import com.oasisfeng.island.util.CallerAwareActivity;
-import com.oasisfeng.island.util.Hacks;
+import com.akash.android.os.UserHandles;
+import com.akash.island.util.CallerAwareActivity;
+import com.akash.island.util.Hacks;
 
 /**
  * API via activity (better for crossing the user border)
  *
- * Created by Oasis on 2016/6/16.
+ * Created by Akash on 2016/6/16.
  */
 public class ApiActivity extends CallerAwareActivity {
 

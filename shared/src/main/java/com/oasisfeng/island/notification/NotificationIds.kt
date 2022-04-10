@@ -1,4 +1,4 @@
-package com.oasisfeng.island.notification
+package com.akash.island.notification
 
 import android.app.Notification
 import android.app.Service

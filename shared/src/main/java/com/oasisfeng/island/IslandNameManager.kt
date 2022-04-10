@@ -1,21 +1,21 @@
-package com.oasisfeng.island
+package com.akash.island
 
 import android.app.admin.DevicePolicyManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.UserHandle
-import com.oasisfeng.android.content.sendProtectedBroadcastInternally
-import com.oasisfeng.island.shared.R
-import com.oasisfeng.island.shuttle.Shuttle
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.OwnerUser
-import com.oasisfeng.island.util.ProfileUser
-import com.oasisfeng.island.util.Users
-import com.oasisfeng.island.util.Users.Companion.ACTION_USER_INFO_CHANGED
-import com.oasisfeng.island.util.Users.Companion.EXTRA_USER_HANDLE
-import com.oasisfeng.island.util.Users.Companion.isParentProfile
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.content.sendProtectedBroadcastInternally
+import com.akash.island.shared.R
+import com.akash.island.shuttle.Shuttle
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.OwnerUser
+import com.akash.island.util.ProfileUser
+import com.akash.island.util.Users
+import com.akash.island.util.Users.Companion.ACTION_USER_INFO_CHANGED
+import com.akash.island.util.Users.Companion.EXTRA_USER_HANDLE
+import com.akash.island.util.Users.Companion.isParentProfile
+import com.akash.island.util.Users.Companion.toId
 
 object IslandNameManager {
 

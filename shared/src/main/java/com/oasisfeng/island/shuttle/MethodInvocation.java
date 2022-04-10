@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shuttle;
+package com.akash.island.shuttle;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * The detail of method invocation to be shuttled.
  *
- * Created by Oasis on 2017/4/2.
+ * Created by Akash on 2017/4/2.
  */
 class MethodInvocation<Result> implements Parcelable {
 

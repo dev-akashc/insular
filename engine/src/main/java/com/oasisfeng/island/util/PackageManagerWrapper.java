@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Oasis Feng. All rights reserved.
+ * Copyright (C) 2017 Akash . All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.Manifest;
 import android.content.ComponentName;
@@ -62,7 +62,7 @@ import static android.os.Build.VERSION_CODES.O;
 /**
  * Delegation wrapper of {@link PackageManager}
  *
- * Created by Oasis on 2017/3/27.
+ * Created by Akash on 2017/3/27.
  */
 @Keep @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public class PackageManagerWrapper extends PackageManager {

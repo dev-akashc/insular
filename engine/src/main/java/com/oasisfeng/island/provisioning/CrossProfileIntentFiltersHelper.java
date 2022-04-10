@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.oasisfeng.island.provisioning;
+package com.akash.island.provisioning;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -21,7 +21,7 @@ import android.provider.AlarmClock;
 import android.provider.MediaStore;
 import android.util.Log;
 
-import com.oasisfeng.island.util.DevicePolicies;
+import com.akash.island.util.DevicePolicies;
 
 import static android.app.admin.DevicePolicyManager.FLAG_PARENT_CAN_ACCESS_MANAGED;
 import static android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH;

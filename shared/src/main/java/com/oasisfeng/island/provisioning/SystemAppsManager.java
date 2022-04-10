@@ -1,4 +1,4 @@
-package com.oasisfeng.island.provisioning;
+package com.akash.island.provisioning;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -20,13 +20,13 @@ import android.provider.Telephony.Carriers;
 import android.provider.UserDictionary;
 import android.util.Log;
 
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.engine.common.WellKnownPackages;
-import com.oasisfeng.island.util.Hacks;
-import com.oasisfeng.island.util.OwnerUser;
-import com.oasisfeng.island.util.ProfileUser;
-import com.oasisfeng.perf.Performances;
-import com.oasisfeng.perf.Stopwatch;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.engine.common.WellKnownPackages;
+import com.akash.island.util.Hacks;
+import com.akash.island.util.OwnerUser;
+import com.akash.island.util.ProfileUser;
+import com.akash.perf.Performances;
+import com.akash.perf.Stopwatch;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -40,7 +40,7 @@ import static android.content.pm.ProviderInfo.FLAG_SINGLE_USER;
 /**
  * Manage the critical system apps in Island
  *
- * Created by Oasis on 2016/4/26.
+ * Created by Akash on 2016/4/26.
  */
 @ProfileUser public class SystemAppsManager {
 

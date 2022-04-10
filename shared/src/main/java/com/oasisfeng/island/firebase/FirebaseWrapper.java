@@ -1,4 +1,4 @@
-package com.oasisfeng.island.firebase;
+package com.akash.island.firebase;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -7,11 +7,11 @@ import android.content.Context;
 import android.os.PowerManager;
 import android.util.Log;
 
-import com.oasisfeng.condom.CondomContext;
-import com.oasisfeng.condom.CondomKit;
-import com.oasisfeng.condom.CondomOptions;
-import com.oasisfeng.island.IslandApplication;
-import com.oasisfeng.island.util.Hacks;
+import com.akash.condom.CondomContext;
+import com.akash.condom.CondomKit;
+import com.akash.condom.CondomOptions;
+import com.akash.island.IslandApplication;
+import com.akash.island.util.Hacks;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -24,7 +24,7 @@ import androidx.annotation.NonNull;
 /**
  * Wrapper for Firebase with tweaks.
  *
- * Created by Oasis on 2018/1/6.
+ * Created by Akash on 2018/1/6.
  */
 @ParametersAreNonnullByDefault public class FirebaseWrapper {
 

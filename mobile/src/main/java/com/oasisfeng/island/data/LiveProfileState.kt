@@ -1,4 +1,4 @@
-package com.oasisfeng.island.data
+package com.akash.island.data
 
 import android.content.BroadcastReceiver
 import android.content.Context

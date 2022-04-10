@@ -1,4 +1,4 @@
-package com.oasisfeng.island.clone
+package com.akash.island.clone
 
 import android.graphics.drawable.Drawable
 import android.os.UserHandle
@@ -18,12 +18,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.island.controller.IslandAppClones
-import com.oasisfeng.island.controller.IslandAppClones.Companion.AppCloneMode
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.ui.IslandTheme
-import com.oasisfeng.island.ui.MutexChipGroup
+import com.akash.android.os.UserHandles
+import com.akash.island.controller.IslandAppClones
+import com.akash.island.controller.IslandAppClones.Companion.AppCloneMode
+import com.akash.island.mobile.R
+import com.akash.island.ui.IslandTheme
+import com.akash.island.ui.MutexChipGroup
 
 class AppClonesBottomSheet(
     private val targets: Map<UserHandle, String>, private val icons: Map<UserHandle, Drawable>?,

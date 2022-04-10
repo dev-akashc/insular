@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.oasisfeng.island.provisioning.task;
+package com.akash.island.provisioning.task;
 
 import android.content.Context;
 import android.util.Log;

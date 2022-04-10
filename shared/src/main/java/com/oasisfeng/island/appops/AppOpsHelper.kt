@@ -1,4 +1,4 @@
-package com.oasisfeng.island.appops
+package com.akash.island.appops
 
 import android.app.AppOpsManager
 import android.app.admin.DevicePolicyManager
@@ -13,14 +13,14 @@ import android.util.ArrayMap
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.annotation.RequiresPermission
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.island.appops.AppOpsCompat.GET_APP_OPS_STATS
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.Hacks.AppOpsManager.OpEntry
-import com.oasisfeng.island.util.Hacks.AppOpsManager.PackageOps
-import com.oasisfeng.island.util.OwnerUser
-import com.oasisfeng.island.util.Permissions
-import com.oasisfeng.island.util.ProfileUser
+import com.akash.android.os.UserHandles
+import com.akash.island.appops.AppOpsCompat.GET_APP_OPS_STATS
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.Hacks.AppOpsManager.OpEntry
+import com.akash.island.util.Hacks.AppOpsManager.PackageOps
+import com.akash.island.util.OwnerUser
+import com.akash.island.util.Permissions
+import com.akash.island.util.ProfileUser
 
 /**
  * Hybrid implementation for App Ops, with local storage for ops if GET_APP_OPS_STATS is not granted.
@@ -29,7 +29,7 @@ import com.oasisfeng.island.util.ProfileUser
  * BEWARE: The local storage implementation cannot track ops changes outside Island (except for open API).
  *         Many ops (e.g. OP_SYSTEM_ALERT_WINDOW, OP_RUN_ANY_IN_BACKGROUND) are known to be toggleable in system Settings.
  *
- * Created by Oasis on 2019-3-1.
+ * Created by Akash on 2019-3-1.
  */
 private const val PREFS_NAME = "app_ops"
 

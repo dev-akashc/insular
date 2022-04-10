@@ -1,4 +1,4 @@
-package com.oasisfeng.island.adb;
+package com.akash.island.adb;
 
 import static android.os.UserManager.DISALLOW_DEBUGGING_FEATURES;
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
@@ -14,19 +14,19 @@ import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.oasisfeng.android.provider.SettingsUtils;
-import com.oasisfeng.android.ui.Snackbars;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.data.LiveUserRestriction;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.security.SecurityPrompt;
-import com.oasisfeng.island.shuttle.Shuttle;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Permissions;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.provider.SettingsUtils;
+import com.akash.android.ui.Snackbars;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.data.LiveUserRestriction;
+import com.akash.island.mobile.R;
+import com.akash.island.security.SecurityPrompt;
+import com.akash.island.shuttle.Shuttle;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Permissions;
+import com.akash.island.util.Users;
 
 /**
- * Created by Oasis on 2019-5-24.
+ * Created by Akash on 2019-5-24.
  */
 public class AdbSecure {
 

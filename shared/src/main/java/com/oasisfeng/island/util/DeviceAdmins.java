@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.app.admin.DeviceAdminReceiver;
 import android.app.admin.DevicePolicyManager;
@@ -8,21 +8,21 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.shared.BuildConfig;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.shared.BuildConfig;
 
 import java.util.List;
 
 import static android.content.Context.DEVICE_POLICY_SERVICE;
 import static android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
 import static android.content.pm.PackageManager.DONT_KILL_APP;
-import static com.oasisfeng.island.analytics.Analytics.Param.ITEM_ID;
+import static com.akash.island.analytics.Analytics.Param.ITEM_ID;
 import static java.util.Objects.requireNonNull;
 
 /**
  * Utility class for device-admin related functions
  *
- * Created by Oasis on 2017/2/19.
+ * Created by Akash on 2017/2/19.
  */
 public class DeviceAdmins {
 
@@ -48,7 +48,7 @@ public class DeviceAdmins {
 			return sDeviceAdminComponent;
 		}	// No resolve result on some Android 7.x devices, cause unknown.
 		if (BuildConfig.DEBUG) throw new IllegalStateException("Engine module is not correctly installed: " + admins);
-		return new ComponentName(Modules.MODULE_ENGINE, "com.oasisfeng.island.IslandDeviceAdminReceiver");	// Fallback
+		return new ComponentName(Modules.MODULE_ENGINE, "com.akash.island.IslandDeviceAdminReceiver");	// Fallback
 	}
 
 	private static ComponentName sDeviceAdminComponent;

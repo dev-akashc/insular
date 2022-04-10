@@ -1,8 +1,8 @@
-package com.oasisfeng.island.shuttle
+package com.akash.island.shuttle
 
 import android.content.Context
 import android.os.UserHandle
-import com.oasisfeng.island.util.Users
+import com.akash.island.util.Users
 
 class Shuttle(val context: Context, val to: UserHandle) {
 

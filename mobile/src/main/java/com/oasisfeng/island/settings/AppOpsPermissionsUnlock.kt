@@ -1,4 +1,4 @@
-package com.oasisfeng.island.settings
+package com.akash.island.settings
 
 import android.app.admin.DevicePolicyManager
 import android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_DEFAULT
@@ -15,9 +15,9 @@ import android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.P
 import android.util.Log
-import com.oasisfeng.island.data.helper.hidden
-import com.oasisfeng.island.util.DPM
-import com.oasisfeng.island.util.DevicePolicies
+import com.akash.island.data.helper.hidden
+import com.akash.island.util.DPM
+import com.akash.island.util.DevicePolicies
 import kotlin.concurrent.thread
 
 class AppOpsPermissionsUnlock: BroadcastReceiver() {

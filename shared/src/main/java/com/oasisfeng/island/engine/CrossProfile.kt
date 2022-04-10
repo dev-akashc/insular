@@ -1,17 +1,17 @@
-package com.oasisfeng.island.engine
+package com.akash.island.engine
 
 import android.app.admin.DevicePolicyManager.FLAG_PARENT_CAN_ACCESS_MANAGED
 import android.content.*
 import android.content.pm.PackageManager.MATCH_DEFAULT_ONLY
 import android.content.pm.PackageManager.MATCH_DISABLED_COMPONENTS
 import android.content.pm.ResolveInfo
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.Users
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.Users
 
 object CrossProfile {
 
-	const val CATEGORY_PARENT_PROFILE = "com.oasisfeng.island.category.PARENT_PROFILE"
-	const val CATEGORY_MANAGED_PROFILE = "com.oasisfeng.island.category.MANAGED_PROFILE"
+	const val CATEGORY_PARENT_PROFILE = "com.akash.island.category.PARENT_PROFILE"
+	const val CATEGORY_MANAGED_PROFILE = "com.akash.island.category.MANAGED_PROFILE"
 
 	/** The target activity must declare [CATEGORY_PARENT_PROFILE] and [Intent.CATEGORY_DEFAULT] in its intent-filter */
 	@JvmStatic fun decorateIntentForActivityInParentProfile(context: Context, intent: Intent) {

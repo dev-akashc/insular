@@ -1,4 +1,4 @@
-package com.oasisfeng.island.console.apps
+package com.akash.island.console.apps
 
 import android.Manifest.permission.MANAGE_EXTERNAL_STORAGE
 import android.content.Context
@@ -32,12 +32,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.MutableLiveData
-import com.oasisfeng.android.base.Versions
-import com.oasisfeng.island.util.hasRequestedLegacyExternalStorage
-import com.oasisfeng.island.data.IslandAppInfo
-import com.oasisfeng.island.data.IslandAppListProvider
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.model.AppViewModel
+import com.akash.android.base.Versions
+import com.akash.island.util.hasRequestedLegacyExternalStorage
+import com.akash.island.data.IslandAppInfo
+import com.akash.island.data.IslandAppListProvider
+import com.akash.island.mobile.R
+import com.akash.island.model.AppViewModel
 
 object AppExtraInfo {
 
@@ -89,6 +89,6 @@ private fun addExtraInfo(textColor: Color = Color(0xffaaaaaa), info: Application
 
 private fun buildPreviewAppInfo(): IslandAppInfo {
 	return IslandAppListProvider().createEntryWithLabel(ApplicationInfo().apply {
-		packageName = "com.oasisfeng.island"; targetSdkVersion = TIRAMISU; uid = 10021
+		packageName = "com.akash.island"; targetSdkVersion = TIRAMISU; uid = 10021
 	}, null, "Island")
 }

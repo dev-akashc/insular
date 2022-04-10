@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shortcut;
+package com.akash.island.shortcut;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 
-import com.oasisfeng.android.ui.IconResizer;
-import com.oasisfeng.island.analytics.Analytics;
+import com.akash.android.ui.IconResizer;
+import com.akash.island.analytics.Analytics;
 
 import java.util.Objects;
 
@@ -19,13 +19,13 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import static android.os.Build.VERSION_CODES.O;
-import static com.oasisfeng.island.analytics.Analytics.Param.ITEM_CATEGORY;
-import static com.oasisfeng.island.analytics.Analytics.Param.ITEM_ID;
+import static com.akash.island.analytics.Analytics.Param.ITEM_CATEGORY;
+import static com.akash.island.analytics.Analytics.Param.ITEM_ID;
 
 /**
  * Helper for shortcut icon.
  *
- * Created by Oasis on 2017/9/18.
+ * Created by Akash on 2017/9/18.
  */
 public class ShortcutIcons {
 

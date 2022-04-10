@@ -1,4 +1,4 @@
-package com.oasisfeng.island.watcher
+package com.akash.island.watcher
 
 import android.Manifest.permission
 import android.app.Notification
@@ -19,19 +19,19 @@ import androidx.annotation.ColorRes
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.RECEIVER_NOT_EXPORTED
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.island.api.Api
-import com.oasisfeng.island.notification.NotificationIds
-import com.oasisfeng.island.notification.post
-import com.oasisfeng.island.util.DPM
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.pattern.PseudoContentProvider
+import com.akash.android.util.Apps
+import com.akash.island.api.Api
+import com.akash.island.notification.NotificationIds
+import com.akash.island.notification.post
+import com.akash.island.util.DPM
+import com.akash.island.util.DevicePolicies
+import com.akash.pattern.PseudoContentProvider
 import java.util.*
 
 /**
  * App watcher for unfrozen apps in Island, for convenient refreezing.
  *
- * Created by Oasis on 2019-2-27.
+ * Created by Akash.
  */
 @RequiresApi(O) class IslandAppWatcher : BroadcastReceiver() {
 
@@ -77,7 +77,7 @@ import java.util.*
 			val permissionLabel = pm.getPermissionInfo(granted_permission, 0).loadLabel(pm)
 			val tag = Uri.fromParts(pkg, granted_permission, null).toString()
 			NotificationIds.IslandAppWatcher.post(context, tag) {
-				buildShared(context, pkg, com.oasisfeng.island.shared.R.color.accent)
+				buildShared(context, pkg, com.akash.island.shared.R.color.accent)
 				setSubText(appName).setContentTitle(context.getString(R.string.notification_permission_was_granted_title, permissionLabel))
 				setContentText(context.getText(R.string.notification_permission_was_granted_text))
 				addAction(Notification.Action.Builder(null, context.getText(R.string.action_keep_granted),
@@ -119,7 +119,7 @@ import java.util.*
 			} else watchingPermissions = null
 			val pkg = info.packageName; val appLabel = info.applicationInfo.loadLabel(context.packageManager)
 			NotificationIds.IslandAppWatcher.post(context, pkg) {
-				buildShared(context, pkg, com.oasisfeng.island.shared.R.color.primary)
+				buildShared(context, pkg, com.akash.island.shared.R.color.primary)
 				setContentTitle(context.getString(R.string.notification_app_watcher_title, appLabel)).setContentText(context.getText(R.string.notification_app_watcher_text))
 				setContentIntent(makePendingIntent(context, ACTION_REFREEZE, "package", pkg) {
 					watchingPermissions?.also { putStringArrayListExtra(EXTRA_WATCHING_PERMISSIONS, it) }})
@@ -137,7 +137,7 @@ import java.util.*
 		private fun Notification.Builder.buildShared(context: Context, pkg: String, @ColorRes color: Int) {
 			val shortcutId = "launch:$pkg"
 			setOngoing(true).setColor(context.getColor(color)).setVisibility(Notification.VISIBILITY_PUBLIC)
-					.setSmallIcon(com.oasisfeng.island.shared.R.drawable.ic_landscape_black_24dp)
+					.setSmallIcon(com.akash.island.shared.R.drawable.ic_landscape_black_24dp)
 					.setGroup(GROUP).setCategory(Notification.CATEGORY_STATUS).setShortcutId(shortcutId)
 			if (SDK_INT >= Q) setLocusId(LocusId(shortcutId))
 		}

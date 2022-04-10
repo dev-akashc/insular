@@ -1,10 +1,10 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:sharedUserId="com.oasisfeng.island"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:sharedUserId="com.akash.island"
     android:versionCode="64000" android:versionName="6.4">
 
     <application tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
 
         <!-- Ensure Run/Debug Configuration in Android Studio to work properly for module-assembly build -->
-        <activity android:name="com.oasisfeng.island.MainActivity">
+        <activity android:name="com.akash.island.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

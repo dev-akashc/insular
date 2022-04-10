@@ -1,4 +1,4 @@
-package com.oasisfeng.island.widget;
+package com.akash.island.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 /**
  * Do not reset query text upon expanding and collapsing.
  *
- * Created by Oasis on 2019-6-30.
+ * Created by Akash on 2019-6-30.
  */
 public class PersistableSearchView extends SearchView {
 

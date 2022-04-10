@@ -1,4 +1,4 @@
-package com.oasisfeng.island.controller
+package com.akash.island.controller
 
 import android.content.Context
 import android.content.pm.PackageManager
@@ -8,8 +8,8 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.Q
 import android.os.Parcel
 import android.util.Log
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.island.shuttle.ContextShuttle
+import com.akash.android.os.UserHandles
+import com.akash.island.shuttle.ContextShuttle
 
 class PrivilegedRemoteWorker: Binder() {
 

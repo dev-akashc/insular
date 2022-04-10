@@ -1,4 +1,4 @@
-package com.oasisfeng.island.provisioning;
+package com.akash.island.provisioning;
 
 import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.Notification.PRIORITY_HIGH;
@@ -53,25 +53,25 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 
-import com.oasisfeng.android.content.IntentCompat;
-import com.oasisfeng.android.content.IntentFilters;
-import com.oasisfeng.android.ui.Dialogs;
-import com.oasisfeng.android.util.SafeAsyncTask;
-import com.oasisfeng.android.util.Suppliers;
-import com.oasisfeng.android.widget.Toasts;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.api.Api;
-import com.oasisfeng.island.appops.AppOpsCompat;
-import com.oasisfeng.island.engine.CrossProfile;
-import com.oasisfeng.island.engine.IslandManager;
-import com.oasisfeng.island.engine.R;
-import com.oasisfeng.island.notification.NotificationIds;
-import com.oasisfeng.island.shuttle.ShuttleProvider;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Modules;
-import com.oasisfeng.island.util.OwnerUser;
-import com.oasisfeng.island.util.ProfileUser;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.content.IntentCompat;
+import com.akash.android.content.IntentFilters;
+import com.akash.android.ui.Dialogs;
+import com.akash.android.util.SafeAsyncTask;
+import com.akash.android.util.Suppliers;
+import com.akash.android.widget.Toasts;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.api.Api;
+import com.akash.island.appops.AppOpsCompat;
+import com.akash.island.engine.CrossProfile;
+import com.akash.island.engine.IslandManager;
+import com.akash.island.engine.R;
+import com.akash.island.notification.NotificationIds;
+import com.akash.island.shuttle.ShuttleProvider;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Modules;
+import com.akash.island.util.OwnerUser;
+import com.akash.island.util.ProfileUser;
+import com.akash.island.util.Users;
 
 import java.util.Collections;
 import java.util.List;
@@ -81,7 +81,7 @@ import java.util.function.Supplier;
 /**
  * The one-time provisioning for newly created managed profile of Island
  *
- * Created by Oasis on 2016/4/26.
+ * Created by Akash on 2016/4/26.
  */
 public class IslandProvisioning extends IntentService {
 
@@ -97,7 +97,7 @@ public class IslandProvisioning extends IntentService {
 	private static final String PREF_KEY_PROFILE_PROVISION_TYPE = "profile.provision.type";
 	/** The revision for post-provisioning. Increase this const value if post-provisioning needs to be re-performed after upgrade. */
 	private static final int POST_PROVISION_REV = 9;
-	private static final String AFFILIATION_ID = "com.oasisfeng.island";
+	private static final String AFFILIATION_ID = "com.akash.island";
 	private static final String SCHEME_PACKAGE = "package";
 
 	@OwnerUser @ProfileUser public static void start(final Context context, final @Nullable String action) {
@@ -291,9 +291,9 @@ public class IslandProvisioning extends IntentService {
 		}
 
 		policies.execute(DevicePolicyManager::setShortSupportMessage,
-				context.getText(com.oasisfeng.island.shared.R.string.device_admin_support_message_short));
+				context.getText(com.akash.island.shared.R.string.device_admin_support_message_short));
 		policies.execute(DevicePolicyManager::setLongSupportMessage,
-				context.getText(com.oasisfeng.island.shared.R.string.device_admin_support_message_long));
+				context.getText(com.akash.island.shared.R.string.device_admin_support_message_long));
 		// As reported by user, some account types are strangely unable to remove. Just make sure all account types are allowed.
 		final String[] restricted_account_types = policies.getManager().getAccountTypesWithManagementDisabled();
 		if (restricted_account_types != null && restricted_account_types.length > 0) for (final String account_type : restricted_account_types)
@@ -383,7 +383,7 @@ public class IslandProvisioning extends IntentService {
 		final Notification.Builder builder = new Notification.Builder(this)
 				.setPriority(PRIORITY_HIGH).setCategory(CATEGORY_STATUS).setUsesChronometer(true)
 				.setSmallIcon(android.R.drawable.stat_notify_sync)
-				.setColor(getColor(com.oasisfeng.island.shared.R.color.accent))
+				.setColor(getColor(com.akash.island.shared.R.color.accent))
 				.setContentTitle(getText(Users.isParentProfile() ? R.string.notification_provisioning_mainland_title : R.string.notification_provisioning_island_title))
 				.setContentText(getText(R.string.notification_provisioning_text));
 		return SDK_INT < O ? builder : builder.setBadgeIconType(BADGE_ICON_SMALL).setColorized(true);

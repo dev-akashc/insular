@@ -1,4 +1,4 @@
-package com.oasisfeng.island.installer
+package com.akash.island.installer
 
 import android.app.Activity
 import android.app.Service
@@ -11,12 +11,12 @@ import android.os.Process
 import android.os.SystemClock
 import android.util.Log
 import android.widget.Toast
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.island.analytics.analytics
-import com.oasisfeng.island.settings.IslandSettings
-import com.oasisfeng.island.shuttle.Shuttle
-import com.oasisfeng.island.util.Users
+import com.akash.android.os.UserHandles
+import com.akash.android.util.Apps
+import com.akash.island.analytics.analytics
+import com.akash.island.settings.IslandSettings
+import com.akash.island.shuttle.Shuttle
+import com.akash.island.util.Users
 
 private const val HELPER_NOTIFICATION_TIMEOUT = 10_000L
 

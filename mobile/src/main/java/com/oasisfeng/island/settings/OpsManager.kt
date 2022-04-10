@@ -1,4 +1,4 @@
-package com.oasisfeng.island.settings
+package com.akash.island.settings
 
 import android.app.Activity
 import android.app.AppOpsManager
@@ -11,13 +11,13 @@ import android.os.Build.VERSION_CODES.P
 import android.os.Process
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.android.ui.Dialogs
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.island.appops.AppOpsHelper
-import com.oasisfeng.island.data.helper.hidden
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.util.Hacks
+import com.akash.android.os.UserHandles
+import com.akash.android.ui.Dialogs
+import com.akash.android.util.Apps
+import com.akash.island.appops.AppOpsHelper
+import com.akash.island.data.helper.hidden
+import com.akash.island.mobile.R
+import com.akash.island.util.Hacks
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

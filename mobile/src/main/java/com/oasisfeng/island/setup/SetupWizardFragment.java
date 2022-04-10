@@ -1,4 +1,4 @@
-package com.oasisfeng.island.setup;
+package com.akash.island.setup;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -10,16 +10,16 @@ import android.widget.Button;
 
 import com.android.setupwizardlib.SetupWizardLayout;
 import com.android.setupwizardlib.view.NavigationBar;
-import com.oasisfeng.android.os.Bundles;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.mobile.databinding.SetupWizardBinding;
+import com.akash.android.os.Bundles;
+import com.akash.island.mobile.R;
+import com.akash.island.mobile.databinding.SetupWizardBinding;
 
 import androidx.databinding.Observable;
 
 /**
  * Setup wizard
  *
- * Created by Oasis on 2016/9/8.
+ * Created by Akash on 2016/9/8.
  */
 public class SetupWizardFragment extends Fragment implements NavigationBar.NavigationBarListener {
 

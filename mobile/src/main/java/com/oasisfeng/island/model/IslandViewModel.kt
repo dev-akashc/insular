@@ -1,12 +1,12 @@
-package com.oasisfeng.island.model
+package com.akash.island.model
 
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.oasisfeng.common.app.BaseAndroidViewModel
-import com.oasisfeng.island.analytics.Analytics
+import com.akash.common.app.BaseAndroidViewModel
+import com.akash.island.analytics.Analytics
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.future.future

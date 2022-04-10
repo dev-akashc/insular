@@ -1,4 +1,4 @@
-package com.oasisfeng.common.app
+package com.akash.common.app
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

@@ -12,7 +12,7 @@
  * the License.
  */
 
-package com.oasisfeng.perf;
+package com.akash.perf;
 
 /**
  * A time source; returns a time value representing the number of nanoseconds elapsed since some

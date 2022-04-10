@@ -1,4 +1,4 @@
-package com.oasisfeng.island.setup;
+package com.akash.island.setup;
 
 import android.accounts.Account;
 import android.app.Activity;
@@ -22,18 +22,18 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.databinding.ObservableInt;
 
-import com.oasisfeng.android.app.Activities;
-import com.oasisfeng.android.os.UserHandles;
-import com.oasisfeng.android.ui.WebContent;
-import com.oasisfeng.island.Config;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.engine.IslandManager;
-import com.oasisfeng.island.mobile.BuildConfig;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.util.DeviceAdmins;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Modules;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.app.Activities;
+import com.akash.android.os.UserHandles;
+import com.akash.android.ui.WebContent;
+import com.akash.island.Config;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.engine.IslandManager;
+import com.akash.island.mobile.BuildConfig;
+import com.akash.island.mobile.R;
+import com.akash.island.util.DeviceAdmins;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Modules;
+import com.akash.island.util.Users;
 
 import java.util.Optional;
 
@@ -41,13 +41,13 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.O;
 import static android.os.Build.VERSION_CODES.TIRAMISU;
-import static com.oasisfeng.island.analytics.Analytics.Param.ITEM_ID;
-import static com.oasisfeng.island.analytics.Analytics.Param.ITEM_NAME;
+import static com.akash.island.analytics.Analytics.Param.ITEM_ID;
+import static com.akash.island.analytics.Analytics.Param.ITEM_NAME;
 
 /**
  * View model for setup fragment
  *
- * Created by Oasis on 2016/4/19.
+ * Created by Akash on 2016/4/19.
  */
 public class SetupViewModel implements Parcelable {
 

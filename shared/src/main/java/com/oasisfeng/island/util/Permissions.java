@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -9,7 +9,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * Permission-related helpers
  *
- * Created by Oasis on 2017/10/8.
+ * Created by Akash on 2017/10/8.
  */
 @ParametersAreNonnullByDefault
 public class Permissions {

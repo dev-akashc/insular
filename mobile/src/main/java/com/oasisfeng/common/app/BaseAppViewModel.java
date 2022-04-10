@@ -1,4 +1,4 @@
-package com.oasisfeng.common.app;
+package com.akash.common.app;
 
 import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
 
@@ -9,15 +9,15 @@ import android.view.View;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
 
-import com.oasisfeng.android.ui.IconResizer;
-import com.oasisfeng.androidx.lifecycle.NonNullMutableLiveData;
-import com.oasisfeng.island.IslandApplication;
-import com.oasisfeng.island.mobile.R;
+import com.akash.android.ui.IconResizer;
+import com.akash.androidx.lifecycle.NonNullMutableLiveData;
+import com.akash.island.IslandApplication;
+import com.akash.island.mobile.R;
 
 /**
  * View-model of basic app entry
  *
- * Created by Oasis on 2016/8/11.
+ * Created by Akash on 2016/8/11.
  */
 public class BaseAppViewModel extends ViewModel {
 

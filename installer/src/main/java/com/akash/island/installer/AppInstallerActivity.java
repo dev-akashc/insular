@@ -1,4 +1,4 @@
-package com.oasisfeng.island.installer;
+package com.akash.island.installer;
 
 import static android.Manifest.permission.MANAGE_DOCUMENTS;
 import static android.Manifest.permission.REQUEST_INSTALL_PACKAGES;
@@ -20,15 +20,15 @@ import static android.os.Build.VERSION_CODES.S;
 import static android.os.Process.INVALID_UID;
 import static android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES;
 import static android.widget.Toast.LENGTH_LONG;
-import static com.oasisfeng.island.analytics.Analytics.Param.CONTENT;
-import static com.oasisfeng.island.analytics.Analytics.Param.ITEM_CATEGORY;
-import static com.oasisfeng.island.analytics.Analytics.Param.LOCATION;
-import static com.oasisfeng.island.appops.AppOpsCompat.OP_REQUEST_INSTALL_PACKAGES;
-import static com.oasisfeng.island.installer.AppInstallInfo.Mode.CLONE;
-import static com.oasisfeng.island.installer.AppInstallInfo.Mode.INHERIT;
-import static com.oasisfeng.island.installer.AppInstallInfo.Mode.INSTALL;
-import static com.oasisfeng.island.installer.AppInstallInfo.Mode.UPDATE;
-import static com.oasisfeng.island.util.AppInfoKt.hasRequestedLegacyExternalStorage;
+import static com.akash.island.analytics.Analytics.Param.CONTENT;
+import static com.akash.island.analytics.Analytics.Param.ITEM_CATEGORY;
+import static com.akash.island.analytics.Analytics.Param.LOCATION;
+import static com.akash.island.appops.AppOpsCompat.OP_REQUEST_INSTALL_PACKAGES;
+import static com.akash.island.installer.AppInstallInfo.Mode.CLONE;
+import static com.akash.island.installer.AppInstallInfo.Mode.INHERIT;
+import static com.akash.island.installer.AppInstallInfo.Mode.INSTALL;
+import static com.akash.island.installer.AppInstallInfo.Mode.UPDATE;
+import static com.akash.island.util.AppInfoKt.hasRequestedLegacyExternalStorage;
 import static java.util.Objects.requireNonNull;
 
 import android.annotation.SuppressLint;
@@ -61,20 +61,20 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import com.oasisfeng.android.os.UserHandles;
-import com.oasisfeng.android.ui.Dialogs;
-import com.oasisfeng.android.ui.WebContent;
-import com.oasisfeng.android.util.Apps;
-import com.oasisfeng.android.widget.Toasts;
-import com.oasisfeng.island.Config;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.appops.AppOpsCompat;
-import com.oasisfeng.island.analyzer.ApkAnalyzer;
-import com.oasisfeng.island.util.CallerAwareActivity;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.ModuleContext;
-import com.oasisfeng.island.util.Users;
-import com.oasisfeng.java.utils.IoUtils;
+import com.akash.android.os.UserHandles;
+import com.akash.android.ui.Dialogs;
+import com.akash.android.ui.WebContent;
+import com.akash.android.util.Apps;
+import com.akash.android.widget.Toasts;
+import com.akash.island.Config;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.appops.AppOpsCompat;
+import com.akash.island.analyzer.ApkAnalyzer;
+import com.akash.island.util.CallerAwareActivity;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.ModuleContext;
+import com.akash.island.util.Users;
+import com.akash.java.utils.IoUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -98,7 +98,7 @@ import kotlin.Unit;
  * <li> Install APK from Mainland into Island, and vice versa.
  * <li> Install app without user consent
  * </ul>
- * Created by Oasis on 2018-11-12.
+ * Created by Akash on 2018-11-12.
  */
 public class AppInstallerActivity extends CallerAwareActivity {
 
@@ -134,7 +134,7 @@ public class AppInstallerActivity extends CallerAwareActivity {
 		final @Nullable Context context = new ModuleContext(this).forDeclaredPermission(REQUEST_INSTALL_PACKAGES);
 		if (context == null) {
 			Dialogs.buildAlert(this, 0, R.string.dialog_clone_no_installer_explanation)
-					.setNeutralButton(com.oasisfeng.island.shared.R.string.action_learn_more, (dialog, which) -> {
+					.setNeutralButton(com.akash.island.shared.R.string.action_learn_more, (dialog, which) -> {
 						WebContent.view(this, Config.URL_FAQ.get()); finish();
 					}).setPositiveButton(android.R.string.cancel, (dialog, which) -> finish()).show();
 			return true;

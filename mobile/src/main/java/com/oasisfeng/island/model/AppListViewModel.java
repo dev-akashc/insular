@@ -1,7 +1,7 @@
-package com.oasisfeng.island.model;
+package com.akash.island.model;
 
 import static android.widget.Toast.LENGTH_SHORT;
-import static com.oasisfeng.island.analytics.Analytics.Param.ITEM_ID;
+import static com.akash.island.analytics.Analytics.Param.ITEM_ID;
 import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.toList;
 
@@ -34,26 +34,26 @@ import androidx.lifecycle.SavedStateHandle;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
-import com.oasisfeng.android.app.Activities;
-import com.oasisfeng.android.base.Scopes;
-import com.oasisfeng.android.databinding.recyclerview.ItemBinder;
-import com.oasisfeng.android.os.UserHandles;
-import com.oasisfeng.android.ui.Dialogs;
-import com.oasisfeng.androidx.lifecycle.NonNullMutableLiveData;
-import com.oasisfeng.common.app.BaseAppListViewModel;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.controller.IslandAppClones;
-import com.oasisfeng.island.controller.IslandAppControl;
-import com.oasisfeng.island.data.IslandAppInfo;
-import com.oasisfeng.island.data.IslandAppListProvider;
-import com.oasisfeng.island.featured.FeaturedListViewModel;
-import com.oasisfeng.island.greenify.GreenifyClient;
-import com.oasisfeng.island.mobile.BR;
-import com.oasisfeng.island.mobile.BuildConfig;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.shortcut.IslandAppShortcut;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.app.Activities;
+import com.akash.android.base.Scopes;
+import com.akash.android.databinding.recyclerview.ItemBinder;
+import com.akash.android.os.UserHandles;
+import com.akash.android.ui.Dialogs;
+import com.akash.androidx.lifecycle.NonNullMutableLiveData;
+import com.akash.common.app.BaseAppListViewModel;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.controller.IslandAppClones;
+import com.akash.island.controller.IslandAppControl;
+import com.akash.island.data.IslandAppInfo;
+import com.akash.island.data.IslandAppListProvider;
+import com.akash.island.featured.FeaturedListViewModel;
+import com.akash.island.greenify.GreenifyClient;
+import com.akash.island.mobile.BR;
+import com.akash.island.mobile.BuildConfig;
+import com.akash.island.mobile.R;
+import com.akash.island.shortcut.IslandAppShortcut;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Users;
 
 import java.util.Collection;
 import java.util.List;
@@ -64,7 +64,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * View model for apps
  *
- * Created by Oasis on 2015/7/7.
+ * Created by Akash on 2015/7/7.
  */
 @ParametersAreNonnullByDefault
 public class AppListViewModel extends BaseAppListViewModel<AppViewModel> {

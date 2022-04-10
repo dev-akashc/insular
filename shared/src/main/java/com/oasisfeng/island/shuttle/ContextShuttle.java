@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shuttle;
+package com.akash.island.shuttle;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -8,13 +8,13 @@ import android.os.UserHandle;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 
-import com.oasisfeng.android.content.pm.Permissions;
-import com.oasisfeng.island.util.Hacks;
+import com.akash.android.content.pm.Permissions;
+import com.akash.island.util.Hacks;
 
 /**
  * Utility class for cross-user context related stuffs.
  *
- * Created by Oasis on 2017/9/1.
+ * Created by Akash on 2017/9/1.
  */
 public class ContextShuttle {
 

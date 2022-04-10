@@ -1,4 +1,4 @@
-package com.oasisfeng.island
+package com.akash.island
 
 import android.app.Notification
 import android.app.PendingIntent
@@ -26,16 +26,16 @@ import android.os.UserHandle
 import android.service.restrictions.RestrictionsReceiver
 import android.util.Log
 import android.widget.Toast
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.island.notification.NotificationIds
-import com.oasisfeng.island.open.BuildConfig
-import com.oasisfeng.island.open.R
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.pattern.PseudoContentProvider
+import com.akash.android.os.UserHandles
+import com.akash.android.util.Apps
+import com.akash.island.notification.NotificationIds
+import com.akash.island.open.BuildConfig
+import com.akash.island.open.R
+import com.akash.island.util.DevicePolicies
+import com.akash.pattern.PseudoContentProvider
 
 /**
- * Created by Oasis on 2019-6-8.
+ * Created by Akash on 2019-6-8.
  */
 const val ACTION_AUTHORIZE = "AUTHORIZE"
 const val ACTION_REFUSE = "REFUSE"
@@ -75,7 +75,7 @@ class DelegatedScopeAuthorization : RestrictionsReceiver() {
         @Suppress("DEPRECATION")
         NotificationIds.Authorization.post(context, requestId, Notification.Builder(context)
             .setSmallIcon(android.R.drawable.ic_dialog_alert).setStyle(Notification.BigTextStyle())
-            .setColor(context.resources.getColor(com.oasisfeng.island.shared.R.color.accent))
+            .setColor(context.resources.getColor(com.akash.island.shared.R.color.accent))
             .setContentTitle(context.getString(R.string.notification_delegated_scope_auth_title, Apps.of(context).getAppName(pkg) ?: pkg))
             .setContentText(context.getString(R.string.notification_delegated_scope_auth_text, context.getText(delegationWithLabel.second)))
             .setDeleteIntent(refuse).addAction(Notification.Action.Builder(0, context.getText(R.string.action_authorize), authorize).build()))

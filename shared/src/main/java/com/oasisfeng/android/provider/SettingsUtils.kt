@@ -1,4 +1,4 @@
-package com.oasisfeng.android.provider
+package com.akash.android.provider
 
 import android.app.Activity
 import android.content.Intent

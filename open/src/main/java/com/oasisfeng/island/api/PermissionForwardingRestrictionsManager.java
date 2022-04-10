@@ -1,4 +1,4 @@
-package com.oasisfeng.island.api;
+package com.akash.island.api;
 
 import android.content.Context;
 import android.content.DerivedRestrictionsManager;
@@ -13,9 +13,9 @@ import android.os.RemoteException;
 import android.os.UserHandle;
 import android.util.Log;
 
-import com.oasisfeng.android.content.pm.PackageManagerCompat;
-import com.oasisfeng.island.DelegatedScopeAuthorization;
-import com.oasisfeng.island.RestrictedBinderProxy;
+import com.akash.android.content.pm.PackageManagerCompat;
+import com.akash.island.DelegatedScopeAuthorization;
+import com.akash.island.RestrictedBinderProxy;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +25,7 @@ import static android.content.Context.RESTRICTIONS_SERVICE;
 /**
  * Allow client to call {@link RestrictionsManager#requestPermission(String, String, PersistableBundle)} in owner user when Island is not device owner.
  *
- * Created by Oasis on 2019-6-6.
+ * Created by Akash on 2019-6-6.
  */
 public class PermissionForwardingRestrictionsManager extends DerivedRestrictionsManager {
 

@@ -1,4 +1,4 @@
-package com.oasisfeng.island.installer
+package com.akash.island.installer
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,10 +11,10 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.Q
 import android.os.Parcelable
 import androidx.annotation.RequiresApi
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.island.engine.IslandManager
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.Hacks
+import com.akash.android.util.Apps
+import com.akash.island.engine.IslandManager
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.Hacks
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 

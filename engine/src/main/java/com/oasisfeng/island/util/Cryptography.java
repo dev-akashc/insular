@@ -1,11 +1,11 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.content.Context;
 import android.security.KeyPairGeneratorSpec;
 import android.util.Log;
 
-import com.oasisfeng.android.util.Suppliers;
-import com.oasisfeng.island.analytics.Analytics;
+import com.akash.android.util.Suppliers;
+import com.akash.island.analytics.Analytics;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -29,7 +29,7 @@ import static java.nio.charset.StandardCharsets.ISO_8859_1;
 /**
  * Utility for signing and verification with Android Keystore.
  *
- * Created by Oasis on 2017/9/22.
+ * Created by Akash on 2017/9/22.
  */
 public class Cryptography {
 

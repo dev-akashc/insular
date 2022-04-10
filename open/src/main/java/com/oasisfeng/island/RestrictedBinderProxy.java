@@ -1,4 +1,4 @@
-package com.oasisfeng.island;
+package com.akash.island;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.util.SparseArray;
 
-import com.oasisfeng.island.util.DevicePolicies;
+import com.akash.island.util.DevicePolicies;
 
 import java.io.FileDescriptor;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 /**
- * Created by Oasis on 2019-4-29.
+ * Created by Akash on 2019-4-29.
  */
 public class RestrictedBinderProxy extends Binder {
 

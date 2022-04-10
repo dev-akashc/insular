@@ -1,4 +1,4 @@
-package com.oasisfeng.android.content
+package com.akash.android.content
 
 import android.content.BroadcastReceiver
 import android.content.Context

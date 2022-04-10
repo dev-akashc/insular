@@ -1,4 +1,4 @@
-- [ ] I'm aware that all feature requests should be sent to the upstream: https://github.com/oasisfeng/island/issues/new/choose, unless
+- [ ] I'm aware that all feature requests should be sent to the upstream: ., unless
     - it's related to the build process or distribution; or
     - it's rejected by the upstream
 

@@ -1,7 +1,7 @@
-package com.oasisfeng.island.shuttle;
+package com.akash.island.shuttle;
 
 import android.content.ComponentName;
-import com.oasisfeng.island.shuttle.IUnbinder;
+import com.akash.island.shuttle.IUnbinder;
 
 interface IServiceConnection {
     oneway void onServiceConnected(in ComponentName name, in IBinder service, in IUnbinder unbinder);

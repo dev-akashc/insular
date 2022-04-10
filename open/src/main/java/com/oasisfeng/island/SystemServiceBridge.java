@@ -1,4 +1,4 @@
-package com.oasisfeng.island;
+package com.akash.island;
 
 import android.app.Service;
 import android.content.Context;
@@ -10,16 +10,16 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.api.DelegatedAppOpsManager;
-import com.oasisfeng.island.api.DelegatedDevicePolicyManager;
-import com.oasisfeng.island.api.PermissionForwardingRestrictionsManager;
-import com.oasisfeng.island.util.Users;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.api.DelegatedAppOpsManager;
+import com.akash.island.api.DelegatedDevicePolicyManager;
+import com.akash.island.api.PermissionForwardingRestrictionsManager;
+import com.akash.island.util.Users;
 
 import java.util.Objects;
 
 /**
- * Created by Oasis on 2019-6-5.
+ * Created by Akash on 2019-6-5.
  */
 public class SystemServiceBridge extends Service {
 

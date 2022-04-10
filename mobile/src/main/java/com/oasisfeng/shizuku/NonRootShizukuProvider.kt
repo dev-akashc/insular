@@ -1,4 +1,4 @@
-package com.oasisfeng.shizuku
+package com.akash.shizuku
 
 import rikka.shizuku.ShizukuProvider
 

@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util
+package com.akash.island.util
 
 import android.Manifest.permission.INTERACT_ACROSS_PROFILES
 import android.annotation.SuppressLint
@@ -21,14 +21,14 @@ import android.os.UserManager
 import android.provider.MediaStore
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.oasisfeng.android.content.pm.LauncherAppsCompat
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.android.widget.Toasts
-import com.oasisfeng.island.analytics.analytics
-import com.oasisfeng.island.appops.AppOpsCompat
-import com.oasisfeng.island.appops.AppOpsHelper
-import com.oasisfeng.island.shared.R
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.content.pm.LauncherAppsCompat
+import com.akash.android.os.UserHandles
+import com.akash.android.widget.Toasts
+import com.akash.island.analytics.analytics
+import com.akash.island.appops.AppOpsCompat
+import com.akash.island.appops.AppOpsHelper
+import com.akash.island.shared.R
+import com.akash.island.util.Users.Companion.toId
 import java.util.*
 import java.util.function.BiConsumer
 
@@ -37,7 +37,7 @@ typealias DPM = DevicePolicyManager
 /**
  * Utility to ease the use of [android.app.admin.DevicePolicyManager]
  *
- * Created by Oasis on 2016/6/14.
+ * Created by Akash on 2016/6/14.
  */
 class DevicePolicies(context: Context, val manager: DevicePolicyManager) {
 
@@ -204,7 +204,7 @@ class DevicePolicies(context: Context, val manager: DevicePolicyManager) {
 
     companion object {
 
-        const val ACTION_PACKAGE_UNFROZEN = "com.oasisfeng.island.action.PACKAGE_UNFROZEN"
+        const val ACTION_PACKAGE_UNFROZEN = "com.akash.island.action.PACKAGE_UNFROZEN"
 
         private fun createProfileAppContext(context: Context, profile: UserHandle): Context {
             val profileAppInfo = LauncherAppsCompat(context).getApplicationInfoNoThrows(Modules.MODULE_ENGINE, 0, profile)

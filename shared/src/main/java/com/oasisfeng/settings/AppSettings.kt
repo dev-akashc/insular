@@ -1,4 +1,4 @@
-package com.oasisfeng.settings
+package com.akash.settings
 
 import android.content.ContentValues
 import android.content.Context
@@ -7,13 +7,13 @@ import android.database.Cursor
 import android.database.MatrixCursor
 import android.net.Uri
 import androidx.annotation.StringRes
-import com.oasisfeng.island.util.Users
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.island.util.Users
+import com.akash.island.util.Users.Companion.toId
 
 /**
  * Utility class to access options stored in settings provider.
  *
- * Created by Oasis on 2016/7/18.
+ * Created by Akash on 2016/7/18.
  */
 class AppSettings(context: Context) {
 

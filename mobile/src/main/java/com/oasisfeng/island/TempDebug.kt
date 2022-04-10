@@ -1,11 +1,11 @@
-package com.oasisfeng.island
+package com.akash.island
 
 import android.app.Activity
 
 /**
  * Stub for temporary debugging code, which is not supposed to be committed to code repository.
  *
- * Created by Oasis on 2016/8/20.
+ * Created by Akash on 2016/8/20.
  */
 object TempDebug {
 

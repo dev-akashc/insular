@@ -1,4 +1,4 @@
-package com.oasisfeng.island;
+package com.akash.island;
 
 import static android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
 import static android.content.pm.PackageManager.DONT_KILL_APP;
@@ -19,19 +19,19 @@ import android.util.Log;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.oasisfeng.android.base.Scopes;
-import com.oasisfeng.android.os.Loopers;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.analytics.Analytics.Property;
-import com.oasisfeng.island.console.apps.AppListFragment;
-import com.oasisfeng.island.mobile.BuildConfig;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.setup.SetupActivity;
-import com.oasisfeng.island.util.CallerAwareActivity;
-import com.oasisfeng.island.util.DeviceAdmins;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Modules;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.base.Scopes;
+import com.akash.android.os.Loopers;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.analytics.Analytics.Property;
+import com.akash.island.console.apps.AppListFragment;
+import com.akash.island.mobile.BuildConfig;
+import com.akash.island.mobile.R;
+import com.akash.island.setup.SetupActivity;
+import com.akash.island.util.CallerAwareActivity;
+import com.akash.island.util.DeviceAdmins;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Modules;
+import com.akash.island.util.Users;
 
 import java.util.List;
 import java.util.Optional;
@@ -93,7 +93,7 @@ public class MainActivity extends FragmentActivity {
 		final PackageManager pm = getPackageManager();
 		final List<ResolveInfo> resolves = pm.queryBroadcastReceivers(new Intent(Intent.ACTION_USER_INITIALIZE).setPackage(Modules.MODULE_ENGINE), 0);
 		final Optional<ResolveInfo> resolve = resolves.stream().filter(r ->
-				r.activityInfo.name.startsWith("com.oasisfeng.island.provision")).findFirst();
+				r.activityInfo.name.startsWith("com.akash.island.provision")).findFirst();
 		if (resolve.isPresent()) {
 			Log.w(TAG, "Manual provisioning is pending, resume it now.");
 			Analytics.$().event("profile_post_provision_pending").send();

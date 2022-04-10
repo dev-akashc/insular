@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shuttle;
+package com.akash.island.shuttle;
 
 interface IUnbinder {
     boolean unbind();

@@ -1,4 +1,4 @@
-package com.oasisfeng.island.ui
+package com.akash.island.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

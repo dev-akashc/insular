@@ -1,4 +1,4 @@
-package com.oasisfeng.island.settings
+package com.akash.island.settings
 
 import android.content.Context
 import android.content.Intent
@@ -16,18 +16,18 @@ import android.widget.Toast
 import androidx.annotation.XmlRes
 import androidx.core.app.NavUtils
 import androidx.core.content.getSystemService
-import com.oasisfeng.android.app.Activities
-import com.oasisfeng.android.google.GooglePlayStore
-import com.oasisfeng.android.ui.Dialogs
-import com.oasisfeng.island.Config
-import com.oasisfeng.island.IslandNameManager
-import com.oasisfeng.island.MainActivity
-import com.oasisfeng.island.mobile.BuildConfig
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.Modules
-import com.oasisfeng.island.util.Users
-import com.oasisfeng.island.util.Users.Companion.isParentProfile
+import com.akash.android.app.Activities
+import com.akash.android.google.GooglePlayStore
+import com.akash.android.ui.Dialogs
+import com.akash.island.Config
+import com.akash.island.IslandNameManager
+import com.akash.island.MainActivity
+import com.akash.island.mobile.BuildConfig
+import com.akash.island.mobile.R
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.Modules
+import com.akash.island.util.Users
+import com.akash.island.util.Users.Companion.isParentProfile
 
 @Suppress("DEPRECATION") class SettingsActivity : android.preference.PreferenceActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +68,7 @@ import com.oasisfeng.island.util.Users.Companion.isParentProfile
 
 		val names = IslandNameManager.getAllNames(this)
 		val labels = users.map { user ->
-			if (user.isParentProfile()) getText(com.oasisfeng.island.shared.R.string.mainland_name) else names[user]
+			if (user.isParentProfile()) getText(com.akash.island.shared.R.string.mainland_name) else names[user]
 		}.toTypedArray()
 		Dialogs.buildList(this, null, labels) { _, which ->
 			if (which == 0) super.onHeaderClick(header, position)

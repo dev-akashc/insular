@@ -12,7 +12,7 @@
  * the License.
  */
 
-package com.oasisfeng.perf;
+package com.akash.perf;
 
 import java.util.Locale;
 import java.util.Objects;

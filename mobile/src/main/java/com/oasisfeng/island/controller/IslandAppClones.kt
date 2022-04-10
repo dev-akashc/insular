@@ -1,4 +1,4 @@
- package com.oasisfeng.island.controller
+ package com.akash.island.controller
 
 import android.Manifest.permission.REQUEST_INSTALL_PACKAGES
 import android.app.admin.DevicePolicyManager
@@ -27,35 +27,35 @@ import androidx.core.content.getSystemService
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.oasisfeng.android.app.Activities
-import com.oasisfeng.android.content.pm.LauncherAppsCompat
-import com.oasisfeng.android.google.GooglePlayStore
-import com.oasisfeng.android.ui.Dialogs
-import com.oasisfeng.android.ui.WebContent
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.island.Config
-import com.oasisfeng.island.IslandNameManager
-import com.oasisfeng.island.analytics.Analytics
-import com.oasisfeng.island.analytics.analytics
-import com.oasisfeng.island.clone.AppClonesBottomSheet
-import com.oasisfeng.island.controller.IslandAppControl.launchSystemAppSettings
-import com.oasisfeng.island.controller.IslandAppControl.unfreezeInitiallyFrozenSystemApp
-import com.oasisfeng.island.data.IslandAppInfo
-import com.oasisfeng.island.data.IslandAppListProvider
-import com.oasisfeng.island.data.helper.hidden
-import com.oasisfeng.island.data.helper.installed
-import com.oasisfeng.island.data.helper.isSystem
-import com.oasisfeng.island.data.helper.suspended
-import com.oasisfeng.island.engine.IslandManager
-import com.oasisfeng.island.engine.common.WellKnownPackages
-import com.oasisfeng.island.installer.InstallerExtras
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.model.interactive
-import com.oasisfeng.island.shuttle.Shuttle
-import com.oasisfeng.island.ui.ModelBottomSheetFragment
-import com.oasisfeng.island.util.*
-import com.oasisfeng.island.util.Users.Companion.isParentProfile
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.app.Activities
+import com.akash.android.content.pm.LauncherAppsCompat
+import com.akash.android.google.GooglePlayStore
+import com.akash.android.ui.Dialogs
+import com.akash.android.ui.WebContent
+import com.akash.android.util.Apps
+import com.akash.island.Config
+import com.akash.island.IslandNameManager
+import com.akash.island.analytics.Analytics
+import com.akash.island.analytics.analytics
+import com.akash.island.clone.AppClonesBottomSheet
+import com.akash.island.controller.IslandAppControl.launchSystemAppSettings
+import com.akash.island.controller.IslandAppControl.unfreezeInitiallyFrozenSystemApp
+import com.akash.island.data.IslandAppInfo
+import com.akash.island.data.IslandAppListProvider
+import com.akash.island.data.helper.hidden
+import com.akash.island.data.helper.installed
+import com.akash.island.data.helper.isSystem
+import com.akash.island.data.helper.suspended
+import com.akash.island.engine.IslandManager
+import com.akash.island.engine.common.WellKnownPackages
+import com.akash.island.installer.InstallerExtras
+import com.akash.island.mobile.R
+import com.akash.island.model.interactive
+import com.akash.island.shuttle.Shuttle
+import com.akash.island.ui.ModelBottomSheetFragment
+import com.akash.island.util.*
+import com.akash.island.util.Users.Companion.isParentProfile
+import com.akash.island.util.Users.Companion.toId
 import eu.chainfire.libsuperuser.Shell
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
@@ -73,7 +73,7 @@ import kotlin.annotation.AnnotationTarget.TYPE
  /**
  * Controller for complex procedures of Island.
  *
- * Refactored by Oasis on 2018-9-30.
+ * Refactored by Akash on 2018-9-30.
  */
 class IslandAppClones(val activity: FragmentActivity, val vm: AndroidViewModel, val app: IslandAppInfo) {
 
@@ -81,7 +81,7 @@ class IslandAppClones(val activity: FragmentActivity, val vm: AndroidViewModel, 
 		val names = IslandNameManager.getAllNames(context)
 		check(names.isNotEmpty()) { "No Island" }
 		val targets: MutableMap<UserHandle, String> = LinkedHashMap(names.size + 1)
-		targets[Users.parentProfile] = context.getString(com.oasisfeng.island.shared.R.string.mainland_name)
+		targets[Users.parentProfile] = context.getString(com.akash.island.shared.R.string.mainland_name)
 		targets.putAll(names)
 
 		val shouldShowBadge: Boolean = targets.size > 2
@@ -205,7 +205,7 @@ class IslandAppClones(val activity: FragmentActivity, val vm: AndroidViewModel, 
 	private fun showExplanation(context: Context, textResId: Int) {
 		val activity = Activities.findActivityFrom(context)
 		if (activity != null) Dialogs.buildAlert(activity, 0, textResId)
-			.setNeutralButton(com.oasisfeng.island.shared.R.string.action_learn_more) { _, _ ->
+			.setNeutralButton(com.akash.island.shared.R.string.action_learn_more) { _, _ ->
 				WebContent.view(context, Config.URL_FAQ.get()) }
 			.setPositiveButton(android.R.string.cancel, null).show()
 		else Toast.makeText(context, textResId, Toast.LENGTH_LONG).show()

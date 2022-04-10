@@ -1,11 +1,11 @@
-package com.oasisfeng.android.content;
+package com.akash.android.content;
 
 import androidx.annotation.RequiresApi;
 
 import static android.os.Build.VERSION_CODES.O;
 
 /**
- * Created by Oasis on 2018-11-27.
+ * Created by Akash on 2018-11-27.
  */
 public class IntentCompat {
 

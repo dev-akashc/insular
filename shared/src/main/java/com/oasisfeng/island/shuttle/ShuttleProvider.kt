@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shuttle
+package com.akash.island.shuttle
 
 import android.app.Activity
 import android.content.*
@@ -11,13 +11,13 @@ import android.util.Log
 import android.util.Size
 import android.util.SizeF
 import android.util.SparseArray
-import com.oasisfeng.android.os.UserHandles
-import com.oasisfeng.island.analytics.analytics
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.OwnerUser
-import com.oasisfeng.island.util.ProfileUser
-import com.oasisfeng.island.util.Users
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.os.UserHandles
+import com.akash.island.analytics.analytics
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.OwnerUser
+import com.akash.island.util.ProfileUser
+import com.akash.island.util.Users
+import com.akash.island.util.Users.Companion.toId
 import java.io.Serializable
 
 class ShuttleProvider: ContentProvider() {

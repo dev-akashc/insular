@@ -1,4 +1,4 @@
-package com.oasisfeng.island
+package com.akash.island
 
 import android.accounts.Account
 import android.accounts.AccountManager
@@ -11,9 +11,9 @@ import android.os.Looper
 import android.os.Process
 import android.os.UserManager
 import androidx.annotation.Keep
-import com.oasisfeng.hack.Hack
-import com.oasisfeng.island.util.Dump
-import com.oasisfeng.island.util.Hacks
+import com.akash.hack.Hack
+import com.akash.island.util.Dump
+import com.akash.island.util.Hacks
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -21,7 +21,7 @@ import kotlinx.coroutines.withContext
 /**
  * Helper running in ADB shell
  *
- * Created by Oasis on 2019-6-23.
+ * Created by Akash on 2019-6-23.
  */
 const val COUNT_DOWN_BEFORE_ACCOUNTS_REMOVAL = 5
 const val EXCLUDED_ACCOUNT_TYPES_FOR_DEBUG = "com.google"
@@ -65,7 +65,7 @@ object AdbShell {
         if (Account("Foo", "Bar").toString() != "Account {name=Foo, type=Bar}") return System.err.println("Incompatible ROM")
         val am = shellContext.getSystemService(ACCOUNT_SERVICE) as AccountManager
         val accounts: List<Account> = Dump.systemService(ACCOUNT_SERVICE) { lines ->
-            // User UserInfo{0:Oasis:13}:
+            // User UserInfo{0:Akash:13}:
             //   Accounts: 15
             //     Account {name=<account name>, type=<account type>}
             //     Account...

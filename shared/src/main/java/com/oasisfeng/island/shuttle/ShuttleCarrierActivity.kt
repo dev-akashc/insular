@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shuttle
+package com.akash.island.shuttle
 
 import android.app.Activity
 import android.app.KeyguardManager
@@ -21,14 +21,14 @@ import android.os.Build.VERSION_CODES.P
 import android.os.Bundle
 import android.util.Log
 import androidx.core.content.getSystemService
-import com.oasisfeng.island.engine.CrossProfile
-import com.oasisfeng.island.notification.NotificationIds
-import com.oasisfeng.island.notification.post
-import com.oasisfeng.island.shared.R
-import com.oasisfeng.island.util.DPM
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.ProfileUser
-import com.oasisfeng.island.util.Users
+import com.akash.island.engine.CrossProfile
+import com.akash.island.notification.NotificationIds
+import com.akash.island.notification.post
+import com.akash.island.shared.R
+import com.akash.island.util.DPM
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.ProfileUser
+import com.akash.island.util.Users
 
 class ShuttleCarrierActivity: Activity() {
 
@@ -54,7 +54,7 @@ class ShuttleCarrierActivity: Activity() {
 				if (SDK_INT < P || DevicePolicies(context).run { ! isManagedProfile || invoke(DPM::isUsingUnifiedPassword) }) false
 				else (context.getSystemService<KeyguardManager>()?.run { isDeviceLocked && isDeviceSecure } ?: false)
 
-		private const val ACTION = "com.oasisfeng.island.action.SHUTTLE"
+		private const val ACTION = "com.akash.island.action.SHUTTLE"
 		private const val SILENT_LAUNCH_FLAGS = Intent.FLAG_ACTIVITY_NO_ANIMATION or Intent.FLAG_ACTIVITY_NO_USER_ACTION or
 				Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or Intent.FLAG_ACTIVITY_NO_HISTORY //or Intent.FLAG_ACTIVITY_MULTIPLE_TASK
 	}

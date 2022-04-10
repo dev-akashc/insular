@@ -1,9 +1,9 @@
-package com.oasisfeng.island.installer;
+package com.akash.island.installer;
 
 /**
  * Internal interface of App Installer
  *
- * Created by Oasis on 2018-11-20.
+ * Created by Akash on 2018-11-20.
  */
 public class InstallerExtras {
 

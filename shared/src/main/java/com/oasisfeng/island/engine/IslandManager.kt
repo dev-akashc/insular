@@ -1,4 +1,4 @@
-package com.oasisfeng.island.engine
+package com.akash.island.engine
 
 import android.content.Context
 import android.content.pm.LauncherApps
@@ -10,14 +10,14 @@ import android.os.UserManager
 import android.provider.Settings
 import android.util.Log
 import androidx.core.content.getSystemService
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.island.util.*
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.util.Apps
+import com.akash.island.util.*
+import com.akash.island.util.Users.Companion.toId
 
 /**
  * Utilities of "managed profile" related functionality
  *
- * Created by Oasis on 2017/2/20.
+ * Created by Akash on 2017/2/20.
  */
 object IslandManager {
 

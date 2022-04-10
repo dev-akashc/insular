@@ -1,4 +1,4 @@
-package com.oasisfeng.island.action
+package com.akash.island.action
 
 import android.content.Intent
 import android.content.pm.LauncherActivityInfo
@@ -7,17 +7,17 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.content.getSystemService
-import com.oasisfeng.android.widget.Toasts
-import com.oasisfeng.island.engine.IslandManager
-import com.oasisfeng.island.mobile.BuildConfig
-import com.oasisfeng.island.shuttle.Shuttle
-import com.oasisfeng.island.util.CallerAwareActivity
-import com.oasisfeng.island.util.Users
+import com.akash.android.widget.Toasts
+import com.akash.island.engine.IslandManager
+import com.akash.island.mobile.BuildConfig
+import com.akash.island.shuttle.Shuttle
+import com.akash.island.util.CallerAwareActivity
+import com.akash.island.util.Users
 
 /**
  * Activity to handle app action "Open Feature"
  *
- * Created by Oasis on 2019-7-1.
+ * Created by Akash on 2019-7-1.
  */
 private const val URI_HOST = "feature"
 

@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shuttle
+package com.akash.island.shuttle
 
 import android.content.Context
 import android.os.Parcel

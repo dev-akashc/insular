@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.oasisfeng.island.settings
+package com.akash.island.settings
 
 import android.Manifest.permission.*
 import android.annotation.SuppressLint
@@ -46,26 +46,26 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
-import com.oasisfeng.android.content.pm.enableComponent
-import com.oasisfeng.android.content.pm.getComponentName
-import com.oasisfeng.android.ui.Dialogs
-import com.oasisfeng.android.ui.WebContent
-import com.oasisfeng.island.Config
-import com.oasisfeng.island.IslandNameManager
-import com.oasisfeng.island.TempDebug
-import com.oasisfeng.island.appops.AppOpsCompat
-import com.oasisfeng.island.data.helper.isSystem
-import com.oasisfeng.island.mobile.BuildConfig
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.notification.NotificationIds
-import com.oasisfeng.island.setup.IslandSetup
-import com.oasisfeng.island.util.*
-import com.oasisfeng.island.util.DevicePolicies.PreferredActivity
+import com.akash.android.content.pm.enableComponent
+import com.akash.android.content.pm.getComponentName
+import com.akash.android.ui.Dialogs
+import com.akash.android.ui.WebContent
+import com.akash.island.Config
+import com.akash.island.IslandNameManager
+import com.akash.island.TempDebug
+import com.akash.island.appops.AppOpsCompat
+import com.akash.island.data.helper.isSystem
+import com.akash.island.mobile.BuildConfig
+import com.akash.island.mobile.R
+import com.akash.island.notification.NotificationIds
+import com.akash.island.setup.IslandSetup
+import com.akash.island.util.*
+import com.akash.island.util.DevicePolicies.PreferredActivity
 
 /**
  * Settings for each managed profile, also as launcher activity in managed profile.
  *
- * Created by Oasis on 2019-10-12.
+ * Created by Akash on 2019-10-12.
  */
 @ProfileUser class IslandSettingsFragment: android.preference.PreferenceFragment() {
 

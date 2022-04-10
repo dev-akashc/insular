@@ -1,4 +1,4 @@
-package com.oasisfeng.island.settings
+package com.akash.island.settings
 
 import android.content.ComponentName
 import android.content.Context
@@ -11,9 +11,9 @@ import android.content.pm.PackageManager.DONT_KILL_APP
 import android.content.pm.ServiceInfo
 import android.database.ContentObserver
 import androidx.annotation.StringRes
-import com.oasisfeng.island.PersistentService
-import com.oasisfeng.island.shared.R
-import com.oasisfeng.settings.AppSettings
+import com.akash.island.PersistentService
+import com.akash.island.shared.R
+import com.akash.settings.AppSettings
 
 class IslandSettings(private val context: Context) {
 

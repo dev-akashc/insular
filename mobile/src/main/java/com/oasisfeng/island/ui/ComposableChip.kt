@@ -1,4 +1,4 @@
-package com.oasisfeng.island.ui
+package com.akash.island.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement

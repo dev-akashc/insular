@@ -1,23 +1,23 @@
-package com.oasisfeng.island.model;
+package com.akash.island.model;
 
 import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.oasisfeng.android.databinding.ObservableSortedList;
-import com.oasisfeng.common.app.BaseAppViewModel;
-import com.oasisfeng.island.data.IslandAppInfo;
-import com.oasisfeng.island.data.IslandAppListProvider;
-import com.oasisfeng.island.mobile.BuildConfig;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.databinding.ObservableSortedList;
+import com.akash.common.app.BaseAppViewModel;
+import com.akash.island.data.IslandAppInfo;
+import com.akash.island.data.IslandAppListProvider;
+import com.akash.island.mobile.BuildConfig;
+import com.akash.island.mobile.R;
+import com.akash.island.util.Users;
 
 import java.util.Comparator;
 
 /**
  * View-model for app entry
  *
- * Created by Oasis on 2016/2/9.
+ * Created by Akash on 2016/2/9.
  */
 public class AppViewModel extends BaseAppViewModel implements ObservableSortedList.Sortable<AppViewModel> {
 

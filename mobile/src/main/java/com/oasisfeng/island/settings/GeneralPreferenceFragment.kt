@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.oasisfeng.island.settings
+package com.akash.island.settings
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -14,15 +14,15 @@ import android.preference.Preference
 import android.preference.TwoStatePreference
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import com.oasisfeng.android.ui.Dialogs
-import com.oasisfeng.island.appops.AppOpsCompat.GET_APP_OPS_STATS
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.settings.IslandSettings.BooleanSetting
-import com.oasisfeng.island.shortcut.IslandAppShortcut
-import com.oasisfeng.island.util.DPM
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.Modules
-import com.oasisfeng.island.util.Permissions
+import com.akash.android.ui.Dialogs
+import com.akash.island.appops.AppOpsCompat.GET_APP_OPS_STATS
+import com.akash.island.mobile.R
+import com.akash.island.settings.IslandSettings.BooleanSetting
+import com.akash.island.shortcut.IslandAppShortcut
+import com.akash.island.util.DPM
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.Modules
+import com.akash.island.util.Permissions
 import eu.chainfire.libsuperuser.Shell
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 /**
  * General preferences in Settings
  *
- * Extracted from SettingsActivity by Oasis on 2019/7/17.
+ * Extracted from SettingsActivity by Akash on 2019/7/17.
  */
 class GeneralPreferenceFragment: SettingsActivity.SubPreferenceFragment(R.xml.pref_general) {
 
@@ -51,8 +51,8 @@ class GeneralPreferenceFragment: SettingsActivity.SubPreferenceFragment(R.xml.pr
 
             isChecked = policies.invoke(DPM::getShortSupportMessage) != null
             onChange { enabled -> true.also {
-                policies.execute(DPM::setShortSupportMessage, if (enabled) getText(com.oasisfeng.island.shared.R.string.device_admin_support_message_short) else null)
-                policies.execute(DPM::setLongSupportMessage, if (enabled) getText(com.oasisfeng.island.shared.R.string.device_admin_support_message_long) else null) }}}
+                policies.execute(DPM::setShortSupportMessage, if (enabled) getText(com.akash.island.shared.R.string.device_admin_support_message_short) else null)
+                policies.execute(DPM::setLongSupportMessage, if (enabled) getText(com.akash.island.shared.R.string.device_admin_support_message_long) else null) }}}
 
         setup<TwoStatePreference>(R.string.key_preserve_app_ops) {
             if (SDK_INT < P) return@setup remove(this)

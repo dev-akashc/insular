@@ -1,9 +1,9 @@
-package com.oasisfeng.perf;
+package com.akash.perf;
 
 import android.os.SystemClock;
 import android.util.Log;
 
-import com.oasisfeng.deagle.BuildConfig;
+import com.akash.deagle.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 /**
  * Utility class for performance related stuffs
  *
- * Created by Oasis on 2016/9/25.
+ * Created by Akash on 2016/9/25.
  */
 public class Performances {
 

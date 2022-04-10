@@ -14,7 +14,7 @@ import static android.os.Build.VERSION_CODES.O;
 /**
  * Helper to extend {@link NotificationManager}
  *
- * Created by Oasis on 2018/1/6.
+ * Created by Akash on 2018/1/6.
  */
 public class NotificationManagerExtender extends NotificationManager {
 

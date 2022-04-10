@@ -1,16 +1,16 @@
-package com.oasisfeng.island.analytics
+package com.akash.island.analytics
 
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.CheckResult
 import androidx.annotation.Size
-import com.oasisfeng.island.IslandApplication
+import com.akash.island.IslandApplication
 import org.intellij.lang.annotations.Pattern
 
 /**
  * Abstraction for analytics service
  *
- * Created by Oasis on 2016/5/26.
+ * Created by Akash on 2016/5/26.
  */
 interface Analytics {
 

@@ -1,4 +1,4 @@
-package com.oasisfeng.island.home
+package com.akash.island.home
 
 import android.app.Activity
 import android.content.ComponentName
@@ -6,8 +6,8 @@ import android.content.Intent
 import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED
 import android.content.pm.PackageManager.DONT_KILL_APP
 import android.util.Log
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.Users
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.Users
 
 class DummyHomeActivity : Activity() {
 

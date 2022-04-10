@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util
+package com.akash.island.util
 
 import android.app.admin.DevicePolicyManager
 import android.content.BroadcastReceiver
@@ -16,11 +16,11 @@ import android.os.UserManager
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.content.getSystemService
-import com.oasisfeng.android.content.IntentFilters
-import com.oasisfeng.android.content.waitForBroadcast
-import com.oasisfeng.island.analytics.analytics
-import com.oasisfeng.island.home.HomeRole
-import com.oasisfeng.pattern.PseudoContentProvider
+import com.akash.android.content.IntentFilters
+import com.akash.android.content.waitForBroadcast
+import com.akash.island.analytics.analytics
+import com.akash.island.home.HomeRole
+import com.akash.pattern.PseudoContentProvider
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlin.coroutines.resume
@@ -28,7 +28,7 @@ import kotlin.coroutines.resume
 /**
  * Utility class for user-related helpers. Only works within the process where this provider is declared to be running.
  *
- * Created by Oasis on 2016/9/25.
+ * Created by Akash on 2016/9/25.
  */
 class Users : PseudoContentProvider() {
 

@@ -1,72 +1,88 @@
 # Insular
 
-Isolate your big brother app.
+Insular is a free and open source fork based on the Island project. It helps you isolate apps that track you, commonly known as Big Brother apps.
 
-This is a fork based on the excellent [Island](https://github.com/oasisfeng/island). Extra credit to [Shelter](https://github.com/PeterCxy/Shelter) which inspired me to make the completely FLOSS fork of Island.
+This project was inspired by Island and Shelter, and aims to provide a fully free and open source solution for app isolation on Android devices.
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.svg"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/packages/com.oasisfeng.island.fdroid)
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on-zh-cn.svg"
-    alt="下载应用，请到 F-Droid"
-    height="80">](https://f-droid.org/packages/com.oasisfeng.island.fdroid)
+## Overview
 
-## Documentation
+Insular allows users to create a separate work profile on their Android device where they can clone, freeze, hide, and control apps to protect privacy and improve security. It offers advanced features such as VPN management per app group, USB access prohibition, and the ability to unfreeze and refreeze apps on demand.
 
-On how to enable Insular via `adb`, cross-profile file access, God mode (extending app control to apps outside the Work Profile), differences from [Island](https://github.com/oasisfeng/island), etc, see [the documentation](https://secure-system.gitlab.io/Insular/).
+It is designed for users who want to better manage and isolate apps without compromising their main profile.
+
+## Architecture
+
+The project is modular and composed of several Gradle modules:
+
+- Engine module: provides core functionality and runs with device owner privileges.
+- Mobile and other modules: provide separate components that can be installed or updated alongside the engine module.
+- Assembly module: acts as the build portal that orchestrates building different product flavors, including light or complete builds.
+
+The system leverages Android Work Profiles (DPC - Device Policy Controller) to create isolated environments.
+
+## Tech Stack
+
+- Language: Java and Kotlin for Android
+- Build system: Gradle with product flavors
+- Android APIs: Device Administration API, Package Usage Stats API, Work Profile APIs
+- Dependencies: deagle library (from the original Island project)
+- Open API: Provides a public API for third-party apps to integrate with Insular capabilities
+
+## Setup Instructions
+
+1. Clone the repository along with the required deagle library:
+
+-- island
+-- deagle
+
+
+Both repositories should be cloned into the same parent directory.
+
+2. Import the project into Android Studio.
+
+3. Build the project using Gradle. The assembly module supports different product flavors including light builds.
+
+4. Deploy the app on a compatible Android device (device must support Work Profiles).
+
+5. Follow instructions to enable Insular via ADB if needed, and configure settings within the app.
+
+Refer to the official documentation for detailed usage, adb enablement, cross-profile file access, and troubleshooting.
+
+## Deployment
+
+Install the APK generated from the build onto your Android device.
+
+Use the app to create a Work Profile that isolates target apps.
+
+To uninstall and remove Insular completely, use the Destroy Insular option in the settings, then remove the Work Profile from the device accounts if the app is uninstalled.
 
 ## Features
 
-With Insular, you can:
-- Isolate your Big Brother apps
-- Clone and run multiple accounts simultaneously
-- Freeze or archive apps and prevent any background behaviors
-- Unfreeze apps on-demand with home screen shortcuts
-- Re-freeze marked apps with one tap
-- Hide apps
-- Selectively enable (or disable) VPN for different group of apps
-- Prohibit USB access to mitigate attacks with physical access
+- Isolate Big Brother apps in a secure Work Profile
+- Clone and run multiple app accounts simultaneously
+- Freeze or archive apps to prevent background activity
+- Unfreeze apps on demand via home screen shortcuts
+- Re-freeze marked apps with a single tap
+- Hide apps from launcher or app lists
+- Selectively enable or disable VPN per app group
+- Prohibit USB access to mitigate physical attack vectors
+- Fully free and open source without proprietary components
+- Open API available for third-party app integration
+- Supports device administrator and usage stats permissions with user consent
 
-If your device is incompatible or not encrypted, you can skip this limitation manually. Please refer to [the XDA post](https://forum.xda-developers.com/android/-t3366295) for details.
-To uninstall and remove Insular completely, please first "Destroy Insular" in Settings - Setup - Click the recycle-bin icon besides Insular. If you have already uninstalled Insular app, please "Remove work profile" in your device "Settings - Accounts".
+## Permissions
 
-## PERMISSIONS
+Insular requests only the necessary permissions:
 
-We only request permissions to achieve what you want. The followings sensitive permissions are requested with reasons:
+- Device Administrator permission to create and manage the Work Profile
+- Package Usage Stats permission to monitor app states
 
-- **DEVICE-ADMIN**: Device administrator privilege is required to create the Insular space (work profile), which serves as the fundamental functionality of Insular. It will be explicitly requested for your consent.
-- **PACKAGE_USAGE_STATS**: Required to correctly recognize the running state of apps. It will be explicitly requested for your consent.
-We will never collect data related to your privacy, please read our privacy policy for more details.
-
-## Build Instructions
-
-Island depends on ["deagle" library](https://github.com/oasisfeng/deagle), which must be cloned alongside Island in the same path.
-
-```
-\--
-  \- island
-  \- deagle
-```
-
-This project is constructed into several modules, with **assembly** module as the build portal,
-to support separate "light" build for core modules, in the form of "product flavor" in Gradle build configuration.
-
-The **"engine"** module shares the same package name with the **"complete"** build, to inherit the profile/device owner privilege.
-The **"mobile"** and other modules can be installed and updated separately alongside **"engine"** module for development convenience.
-
-## Open API
-
-Due to the exclusivity nature, user could only use one Android DPC app at a time, and price of switching DPC is far too heavy. To encourage active exploration and broader development in the capabilities of DPC and therefore better benefit users,
-Island is devoted to build an open collaboration for community developers, either in development of this project or opening DPC capabilities to 3rd-party apps via open API. Island itself will not focus on the rich set of features, but mainly focuses on building a powerful **engine** as an open platform for much more apps from the community.
-
-Starting from the first public version of Island, all APIs are open to 3rd-party apps with the standard runtime-permission of Android as user authorization. Developers can start building apps now to take advantage of the Island open APIs.
-
-The protocol of all APIs are well defined and maintained in the **[class "Api"](/shared/src/main/java/com/oasisfeng/island/api/Api.java)**. 
+The project respects user privacy and does not collect personal data. For details, see the privacy policy.
 
 ## Contribution
 
-If you found bugs, made minor improvements or translated the strings, please feel free to send us pull-requests.
+Contributions such as bug fixes, minor improvements, translations, and feature requests are welcome via pull requests.
 
-If you are interested in improving the functionality of Island, please create an issue first to discuss your thoughts with us, we are open to collaboration in future development.
+For major improvements or new API ideas, please open an issue to discuss before implementation.
 
-If you need new APIs for your apps to take advantage of the DPC capabilities, please feel free to create an issue to describe your app and its use case of those APIs. We are still in the early stage of building a rich set of open APIs.
+The project encourages collaboration to expand and improve open Device Policy Controller capabilities for the Android community.

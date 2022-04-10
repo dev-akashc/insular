@@ -1,4 +1,4 @@
-package com.oasisfeng.island.api;
+package com.akash.island.api;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -18,11 +18,11 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.oasisfeng.island.engine.IslandManager;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Hacks;
-import com.oasisfeng.island.util.Permissions;
-import com.oasisfeng.island.util.Users;
+import com.akash.island.engine.IslandManager;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Hacks;
+import com.akash.island.util.Permissions;
+import com.akash.island.util.Users;
 
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -39,12 +39,12 @@ import static android.content.pm.PackageManager.GET_SIGNATURES;
 import static android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.P;
-import static com.oasisfeng.island.util.Permissions.INTERACT_ACROSS_USERS;
+import static com.akash.island.util.Permissions.INTERACT_ACROSS_USERS;
 
 /**
  * Dispatch the API calls.
  *
- * Created by Oasis on 2017/9/20.
+ * Created by Akash on 2017/9/20.
  */
 class ApiDispatcher {
 
@@ -194,7 +194,7 @@ class ApiDispatcher {
 
 	private static final Map<String/* pkg */, Integer/* signature hash */> sVerifiedCallers = new ArrayMap<>(2);
 	static {
-		sVerifiedCallers.put("com.oasisfeng.greenify", -373128424);
+		sVerifiedCallers.put("com.akash.greenify", -373128424);
 		sVerifiedCallers.put("com.catchingnow.icebox", -502198281);
 	}
 

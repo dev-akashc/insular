@@ -1,4 +1,4 @@
-package com.oasisfeng.android.content.pm
+package com.akash.android.content.pm
 
 import android.content.ComponentName
 import android.content.Context

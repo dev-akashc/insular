@@ -1,13 +1,13 @@
-package com.oasisfeng.island.analytics;
+package com.akash.island.analytics;
 
 import android.os.Process;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.oasisfeng.android.util.Suppliers;
-import com.oasisfeng.island.IslandApplication;
-import com.oasisfeng.island.shared.BuildConfig;
+import com.akash.android.util.Suppliers;
+import com.akash.island.IslandApplication;
+import com.akash.island.shared.BuildConfig;
 
 import java.util.function.Supplier;
 
@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 /**
  * Lazy initializer for crash handler.
  *
- * Created by Oasis on 2017/7/14.
+ * Created by Akash on 2017/7/14.
  */
 public abstract class CrashReport {
 

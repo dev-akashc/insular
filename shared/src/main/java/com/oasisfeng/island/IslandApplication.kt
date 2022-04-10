@@ -1,12 +1,12 @@
-package com.oasisfeng.island
+package com.akash.island
 
 import android.app.Application
-import com.oasisfeng.island.analytics.CrashReport
+import com.akash.island.analytics.CrashReport
 
 /**
  * For singleton instance purpose only.
  *
- * Created by Oasis on 2018/1/3.
+ * Created by Akash on 2018/1/3.
  */
 class IslandApplication : Application() {
 

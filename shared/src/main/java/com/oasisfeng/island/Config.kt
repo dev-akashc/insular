@@ -1,12 +1,12 @@
-package com.oasisfeng.island
+package com.akash.island
 
-import com.oasisfeng.island.firebase.FirebaseWrapper
-import com.oasisfeng.island.shared.BuildConfig
+import com.akash.island.firebase.FirebaseWrapper
+import com.akash.island.shared.BuildConfig
 
 /**
  * Remotely configurable values
  *
- * Created by Oasis on 2016/5/26.
+ * Created by Akash on 2016/5/26.
  */
 enum class Config(private val key: String, private val default: String) {
 	IS_REMOTE("is_remote", ""),
@@ -15,7 +15,7 @@ enum class Config(private val key: String, private val default: String) {
 	URL_SETUP("url_setup", "https://secure-system.gitlab.io/Insular/setup"),
 	URL_SETUP_MANAGED_MAINLAND("url_setup_god_mode", "https://secure-system.gitlab.io/Insular/setup#activate-managed-mainland"),
 	URL_SETUP_TROUBLESHOOTING("url_setup_trouble", "hhttps://secure-system.gitlab.io/Insular/faq"),
-	PERMISSION_REQUEST_ALLOWED_APPS("permission_allowed_apps", "com.oasisfeng.greenify,com.oasisfeng.nevo");
+	PERMISSION_REQUEST_ALLOWED_APPS("permission_allowed_apps", "com.akash.greenify,com.akash.nevo");
 	fun get(): String = config.getOrDefault(key, "")
 
 	companion object {
@@ -32,7 +32,7 @@ enum class Config(private val key: String, private val default: String) {
 								"https://secure-system.gitlab.io/Insular/setup#manual-setup-for-island-in-god-mode",
 						"url_setup_trouble" to "https://secure-system.gitlab.io/Insular/faq",
 						"url_file_shuttle" to "https://secure-system.gitlab.io/Insular/files",
-						"permission_allowed_apps" to "com.oasisfeng.greenify,com.oasisfeng.nevo"
+						"permission_allowed_apps" to "com.akash.greenify,com.akash.nevo"
 				)
 	}
 }

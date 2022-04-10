@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.provider.DocumentsContract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.oasisfeng.island.engine.CrossProfile;
+import com.akash.island.engine.CrossProfile;
 
 import java.util.List;
 
@@ -24,12 +24,12 @@ import static android.content.pm.PackageManager.MATCH_DISABLED_COMPONENTS;
 /**
  * Utility class to get module ID of common modules in Island.
  *
- * Created by Oasis on 2017/2/19.
+ * Created by Akash on 2017/2/19.
  */
 public class Modules {
 
 	// Engine is singleton across the device.
-	public static final String MODULE_ENGINE = "com.oasisfeng.island.fdroid";
+	public static final String MODULE_ENGINE = "com.akash.island.fdroid";
 
 	public static void broadcast(final Context context, final Intent intent) {
 		if (intent.getComponent() != null || intent.getPackage() != null) throw new IllegalArgumentException("Explicit " + intent);

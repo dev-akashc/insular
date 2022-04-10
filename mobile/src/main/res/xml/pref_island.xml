@@ -13,11 +13,11 @@
 
     <PreferenceCategory android:key="@string/key_privacy" android:title="@string/pref_privacy_header">
 
-        <com.oasisfeng.android.preference.WallOfTextPreference
+        <com.akash.android.preference.WallOfTextPreference
             android:summary="@string/pref_privacy_summary"
             android:selectable="false" />
 
-        <com.oasisfeng.android.preference.WallOfTextPreference
+        <com.akash.android.preference.WallOfTextPreference
             android:key="@string/key_privacy_appops"
             android:summary="@string/pref_privacy_appops"
             android:selectable="false" />

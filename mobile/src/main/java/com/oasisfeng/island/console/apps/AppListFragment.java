@@ -1,4 +1,4 @@
-package com.oasisfeng.island.console.apps;
+package com.akash.island.console.apps;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,18 +18,18 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.oasisfeng.common.app.AppListProvider;
-import com.oasisfeng.island.TempDebug;
-import com.oasisfeng.island.data.IslandAppInfo;
-import com.oasisfeng.island.data.IslandAppListProvider;
-import com.oasisfeng.island.featured.FeaturedListViewModel;
-import com.oasisfeng.island.guide.UserGuide;
-import com.oasisfeng.island.mobile.BuildConfig;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.mobile.databinding.AppListBinding;
-import com.oasisfeng.island.model.AppListViewModel;
-import com.oasisfeng.island.model.MainViewModel;
-import com.oasisfeng.island.settings.SettingsActivity;
+import com.akash.common.app.AppListProvider;
+import com.akash.island.TempDebug;
+import com.akash.island.data.IslandAppInfo;
+import com.akash.island.data.IslandAppListProvider;
+import com.akash.island.featured.FeaturedListViewModel;
+import com.akash.island.guide.UserGuide;
+import com.akash.island.mobile.BuildConfig;
+import com.akash.island.mobile.R;
+import com.akash.island.mobile.databinding.AppListBinding;
+import com.akash.island.model.AppListViewModel;
+import com.akash.island.model.MainViewModel;
+import com.akash.island.settings.SettingsActivity;
 
 import java.util.Collection;
 

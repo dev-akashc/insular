@@ -1,4 +1,4 @@
-package com.oasisfeng.island.api;
+package com.akash.island.api;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -11,7 +11,7 @@ import static android.content.Intent.FLAG_RECEIVER_FOREGROUND;
 /**
  * Broadcast API invocation handler. Result will be delivered as broadcast result in ordered broadcast.
  *
- * Created by Oasis on 2017/9/18.
+ * Created by Akash on 2017/9/18.
  */
 public class ApiReceiver extends BroadcastReceiver {
 

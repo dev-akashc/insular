@@ -1,4 +1,4 @@
-package com.oasisfeng.island.engine
+package com.akash.island.engine
 
 import android.app.admin.DevicePolicyManager
 import android.content.Context
@@ -10,15 +10,15 @@ import android.os.UserHandle
 import android.os.UserManager
 import android.util.Log
 import androidx.annotation.WorkerThread
-import com.oasisfeng.android.content.pm.LauncherAppsCompat
-import com.oasisfeng.android.util.SafeSharedPreferences
-import com.oasisfeng.island.controller.IslandAppControl
-import com.oasisfeng.island.data.helper.hidden
-import com.oasisfeng.island.data.helper.suspended
-import com.oasisfeng.island.shuttle.Shuttle
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.OwnerUser
-import com.oasisfeng.island.util.Users
+import com.akash.android.content.pm.LauncherAppsCompat
+import com.akash.android.util.SafeSharedPreferences
+import com.akash.island.controller.IslandAppControl
+import com.akash.island.data.helper.hidden
+import com.akash.island.data.helper.suspended
+import com.akash.island.shuttle.Shuttle
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.OwnerUser
+import com.akash.island.util.Users
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

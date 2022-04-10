@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.oasisfeng.island.provisioning.task;
+package com.akash.island.provisioning.task;
 
 import android.annotation.SuppressLint;
 import android.app.admin.DevicePolicyManager;
@@ -34,10 +34,10 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.engine.R;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.PackageManagerWrapper;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.engine.R;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.PackageManagerWrapper;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

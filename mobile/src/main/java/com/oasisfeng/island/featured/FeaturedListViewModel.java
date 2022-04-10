@@ -1,4 +1,4 @@
-package com.oasisfeng.island.featured;
+package com.akash.island.featured;
 
 import static android.os.UserManager.DISALLOW_DEBUGGING_FEATURES;
 import static androidx.lifecycle.Transformations.map;
@@ -19,25 +19,25 @@ import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.oasisfeng.android.base.Scopes;
-import com.oasisfeng.android.databinding.ObservableSortedList;
-import com.oasisfeng.android.databinding.recyclerview.BindingRecyclerViewAdapter;
-import com.oasisfeng.android.databinding.recyclerview.ItemBinder;
-import com.oasisfeng.android.util.Apps;
-import com.oasisfeng.androidx.lifecycle.NonNullMutableLiveData;
-import com.oasisfeng.island.adb.AdbSecure;
-import com.oasisfeng.island.analytics.Analytics;
-import com.oasisfeng.island.controller.IslandAppClones;
-import com.oasisfeng.island.data.IslandAppInfo;
-import com.oasisfeng.island.data.IslandAppListProvider;
-import com.oasisfeng.island.data.LiveUserRestriction;
-import com.oasisfeng.island.mobile.BR;
-import com.oasisfeng.island.mobile.R;
-import com.oasisfeng.island.mobile.databinding.FeaturedEntryBinding;
-import com.oasisfeng.island.settings.IslandSettingsFragment;
-import com.oasisfeng.island.settings.SettingsActivity;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.Users;
+import com.akash.android.base.Scopes;
+import com.akash.android.databinding.ObservableSortedList;
+import com.akash.android.databinding.recyclerview.BindingRecyclerViewAdapter;
+import com.akash.android.databinding.recyclerview.ItemBinder;
+import com.akash.android.util.Apps;
+import com.akash.androidx.lifecycle.NonNullMutableLiveData;
+import com.akash.island.adb.AdbSecure;
+import com.akash.island.analytics.Analytics;
+import com.akash.island.controller.IslandAppClones;
+import com.akash.island.data.IslandAppInfo;
+import com.akash.island.data.IslandAppListProvider;
+import com.akash.island.data.LiveUserRestriction;
+import com.akash.island.mobile.BR;
+import com.akash.island.mobile.R;
+import com.akash.island.mobile.databinding.FeaturedEntryBinding;
+import com.akash.island.settings.IslandSettingsFragment;
+import com.akash.island.settings.SettingsActivity;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.Users;
 
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -48,7 +48,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * View-model for featured list
  *
- * Created by Oasis on 2018/5/18.
+ * Created by Akash on 2018/5/18.
  */
 @ParametersAreNonnullByDefault
 public class FeaturedListViewModel extends AndroidViewModel {

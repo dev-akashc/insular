@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.oasisfeng.island.provisioning.task;
+package com.akash.island.provisioning.task;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.RemoteException;
 
-import com.oasisfeng.island.provisioning.task.DeleteNonRequiredAppsTask.IPackageManager;
+import com.akash.island.provisioning.task.DeleteNonRequiredAppsTask.IPackageManager;
 
 import java.util.HashSet;
 import java.util.List;

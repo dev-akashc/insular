@@ -1,11 +1,11 @@
-package com.oasisfeng.settings;
+package com.akash.settings;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.oasisfeng.island.mobile.R;
+import com.akash.island.mobile.R;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;

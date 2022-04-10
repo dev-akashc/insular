@@ -1,4 +1,4 @@
-package com.oasisfeng.island.analyzer
+package com.akash.island.analyzer
 
 import android.content.Context
 import android.content.pm.ApplicationInfo
@@ -15,9 +15,9 @@ import androidx.annotation.WorkerThread
 import com.jaredrummler.apkparser.parser.*
 import com.jaredrummler.apkparser.struct.AndroidConstants
 import com.jaredrummler.apkparser.struct.xml.XmlNodeStartTag
-import com.oasisfeng.island.util.Hacks
-import com.oasisfeng.island.util.PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE
-import com.oasisfeng.java.utils.IoUtils
+import com.akash.island.util.Hacks
+import com.akash.island.util.PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE
+import com.akash.java.utils.IoUtils
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.InputStream

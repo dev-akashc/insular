@@ -1,18 +1,18 @@
-package com.oasisfeng.island.provisioning;
+package com.akash.island.provisioning;
 
-import com.oasisfeng.android.os.Loopers;
-import com.oasisfeng.island.engine.BuildConfig;
-import com.oasisfeng.island.util.DevicePolicies;
-import com.oasisfeng.island.util.ProfileUser;
-import com.oasisfeng.island.util.Users;
-import com.oasisfeng.pattern.PseudoContentProvider;
-import com.oasisfeng.perf.Performances;
-import com.oasisfeng.perf.Stopwatch;
+import com.akash.android.os.Loopers;
+import com.akash.island.engine.BuildConfig;
+import com.akash.island.util.DevicePolicies;
+import com.akash.island.util.ProfileUser;
+import com.akash.island.util.Users;
+import com.akash.pattern.PseudoContentProvider;
+import com.akash.perf.Performances;
+import com.akash.perf.Stopwatch;
 
 /**
  * Perform incremental provision
  *
- * Created by Oasis on 2017/11/21.
+ * Created by Akash on 2017/11/21.
  */
 public class AutoIncrementalProvision extends PseudoContentProvider {
 

@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.oasisfeng.island.mobile'
+    namespace 'com.akash.island.mobile'
 
     compileSdk this.compileSdkVersion
 

@@ -1,7 +1,7 @@
 plugins { id("com.android.library") }
 
 android {
-    namespace = "com.oasisfeng.island.sideplay"
+    namespace = "com.akash.island.sideplay"
 
     compileSdk = 34
 

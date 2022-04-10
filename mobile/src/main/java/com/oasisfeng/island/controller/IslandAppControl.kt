@@ -1,4 +1,4 @@
-package com.oasisfeng.island.controller
+package com.akash.island.controller
 
 import android.app.Activity
 import android.app.admin.DevicePolicyManager
@@ -10,25 +10,25 @@ import android.net.Uri
 import android.os.UserHandle
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
-import com.oasisfeng.android.app.Activities
-import com.oasisfeng.android.content.IntentCompat
-import com.oasisfeng.android.ui.Dialogs
-import com.oasisfeng.android.util.Apps
-import com.oasisfeng.android.widget.Toasts
-import com.oasisfeng.island.analytics.Analytics.Param.ITEM_CATEGORY
-import com.oasisfeng.island.analytics.Analytics.Param.ITEM_ID
-import com.oasisfeng.island.analytics.analytics
-import com.oasisfeng.island.data.IslandAppInfo
-import com.oasisfeng.island.data.helper.AppStateTrackingHelper
-import com.oasisfeng.island.engine.ClonedHiddenSystemApps
-import com.oasisfeng.island.engine.IslandManager
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.model.interactive
-import com.oasisfeng.island.shuttle.Shuttle
-import com.oasisfeng.island.util.DevicePolicies
-import com.oasisfeng.island.util.OwnerUser
-import com.oasisfeng.island.util.ProfileUser
-import com.oasisfeng.island.util.Users
+import com.akash.android.app.Activities
+import com.akash.android.content.IntentCompat
+import com.akash.android.ui.Dialogs
+import com.akash.android.util.Apps
+import com.akash.android.widget.Toasts
+import com.akash.island.analytics.Analytics.Param.ITEM_CATEGORY
+import com.akash.island.analytics.Analytics.Param.ITEM_ID
+import com.akash.island.analytics.analytics
+import com.akash.island.data.IslandAppInfo
+import com.akash.island.data.helper.AppStateTrackingHelper
+import com.akash.island.engine.ClonedHiddenSystemApps
+import com.akash.island.engine.IslandManager
+import com.akash.island.mobile.R
+import com.akash.island.model.interactive
+import com.akash.island.shuttle.Shuttle
+import com.akash.island.util.DevicePolicies
+import com.akash.island.util.OwnerUser
+import com.akash.island.util.ProfileUser
+import com.akash.island.util.Users
 import org.jetbrains.annotations.NotNull
 
 object IslandAppControl {

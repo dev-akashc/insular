@@ -1,4 +1,4 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:context="com.oasisfeng.island.settings.SettingsActivity">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:context="com.akash.island.settings.SettingsActivity">
 
     <Preference android:key="@string/key_version" android:title="@string/pref_about_version_title" tools:summary="1.0 beta 1" />
 
@@ -7,7 +7,7 @@
     </Preference>
 
     <Preference android:key="@string/key_beta" android:title="@string/pref_about_beta" android:summary="@string/pref_about_beta_github_summary">
-        <intent android:action="android.intent.action.VIEW" android:data="https://github.com/oasisfeng/island" />
+        <intent android:action="android.intent.action.VIEW" android:data="https://github.com/akash/island" />
     </Preference>
 
     <PreferenceScreen android:title="@string/pref_about_licenses_title">
@@ -16,7 +16,7 @@
                 <intent android:action="android.intent.action.VIEW" android:data="https://source.android.com/" />
             </PreferenceScreen>
             <PreferenceScreen android:title="Deagle Library" android:summary="Apache License, Version 2.0">
-                <intent android:action="android.intent.action.VIEW" android:data="https://github.com/oasisfeng/deagle" />
+                <intent android:action="android.intent.action.VIEW" android:data="https://github.com/akash/deagle" />
             </PreferenceScreen>
             <PreferenceScreen android:title="Stream Support" android:summary="GNU General Public License, version 2, with the Classpath Exception">
                 <intent android:action="android.intent.action.VIEW" android:data="https://github.com/streamsupport/streamsupport" />

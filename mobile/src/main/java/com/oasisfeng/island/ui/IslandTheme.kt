@@ -1,4 +1,4 @@
-package com.oasisfeng.island.ui
+package com.akash.island.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

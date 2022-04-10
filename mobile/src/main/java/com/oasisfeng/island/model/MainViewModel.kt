@@ -1,4 +1,4 @@
-package com.oasisfeng.island.model
+package com.akash.island.model
 
 import android.app.Application
 import android.content.Context
@@ -10,16 +10,16 @@ import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.SavedStateHandle
 import com.google.android.material.tabs.TabLayout
-import com.oasisfeng.android.content.receiver
-import com.oasisfeng.island.IslandNameManager
-import com.oasisfeng.island.analytics.analytics
-import com.oasisfeng.island.data.LiveProfileStates
-import com.oasisfeng.island.data.LiveProfileStates.ProfileState
-import com.oasisfeng.island.mobile.R
-import com.oasisfeng.island.util.Users
-import com.oasisfeng.island.util.Users.Companion.ACTION_USER_INFO_CHANGED
-import com.oasisfeng.island.util.Users.Companion.isParentProfile
-import com.oasisfeng.island.util.Users.Companion.toId
+import com.akash.android.content.receiver
+import com.akash.island.IslandNameManager
+import com.akash.island.analytics.analytics
+import com.akash.island.data.LiveProfileStates
+import com.akash.island.data.LiveProfileStates.ProfileState
+import com.akash.island.mobile.R
+import com.akash.island.util.Users
+import com.akash.island.util.Users.Companion.ACTION_USER_INFO_CHANGED
+import com.akash.island.util.Users.Companion.isParentProfile
+import com.akash.island.util.Users.Companion.toId
 
 class MainViewModel(app: Application, state: SavedStateHandle): AppListViewModel(app, state) {
 
@@ -36,7 +36,7 @@ class MainViewModel(app: Application, state: SavedStateHandle): AppListViewModel
 		// Tab "Discovery" and "Mainland" are always present
 		tabs.addTab(tabs.newTab().setText(R.string.tab_discovery), /* setSelected */false)
 		val currentProfile = currentProfile
-		tabs.addTab(tabs.newTab().setText(com.oasisfeng.island.shared.R.string.mainland_name), /* setSelected */currentProfile.isParentProfile())
+		tabs.addTab(tabs.newTab().setText(com.akash.island.shared.R.string.mainland_name), /* setSelected */currentProfile.isParentProfile())
 
 		for ((profile, name) in IslandNameManager.getAllNames(activity)) {
 			val tab = tabs.newTab().setTag(profile).setText(name)

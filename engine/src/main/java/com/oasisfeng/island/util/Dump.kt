@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util
+package com.akash.island.util
 
 import android.os.Debug
 import android.os.ParcelFileDescriptor
@@ -9,7 +9,7 @@ import kotlinx.coroutines.withTimeout
 /**
  * Helper for dumping system service
  *
- * Created by Oasis on 2019-6-24.
+ * Created by Akash on 2019-6-24.
  */
 object Dump {
 

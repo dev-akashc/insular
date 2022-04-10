@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util;
+package com.akash.island.util;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -14,7 +14,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 /**
  * Expand the default behavior of FloatingActionButton to support {@link BottomSheetBehavior}
  *
- * Created by Oasis on 2016/6/24.
+ * Created by Akash on 2016/6/24.
  */
 public class FloatingActionButtonBehavior extends FloatingActionButton.Behavior {
 

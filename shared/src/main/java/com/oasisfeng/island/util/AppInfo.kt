@@ -1,4 +1,4 @@
-package com.oasisfeng.island.util
+package com.akash.island.util
 
 import android.content.pm.ApplicationInfo
 

@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.oasisfeng.island.settings
+package com.akash.island.settings
 
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.O

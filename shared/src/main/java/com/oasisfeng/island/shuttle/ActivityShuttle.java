@@ -1,4 +1,4 @@
-package com.oasisfeng.island.shuttle;
+package com.akash.island.shuttle;
 
 import static android.content.Context.USER_SERVICE;
 import static java.util.Objects.requireNonNull;
@@ -11,14 +11,14 @@ import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
 import android.os.UserManager;
 
-import com.oasisfeng.island.util.Users;
+import com.akash.island.util.Users;
 
 import java.util.List;
 
 /**
  * Shuttle for cross-profile activity behaviors.
  *
- * Created by Oasis on 2019-3-4.
+ * Created by Akash on 2019-3-4.
  */
 public class ActivityShuttle {
 
