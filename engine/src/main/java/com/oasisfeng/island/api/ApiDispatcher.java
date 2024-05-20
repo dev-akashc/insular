@@ -28,7 +28,6 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -63,32 +62,35 @@ class ApiDispatcher {
 			uid = id.getCreatorUid();
 			if (pkg == null) return "No creator information in " + id;
 		}
-		if (uid > 0 && Users.isSameApp(uid, Process.myUid())) return null;		// From myself (possibly in other user).
-		// This log should generally be placed in the caller site, do it after same app check to skip this for internal API caller with component set.
+		if (uid > 0 && Users.isSameApp(uid, Process.myUid())) return null; // From myself (possibly in other user).
+
 		if (intent.getPackage() == null && intent.getComponent() != null)
 			Log.w(TAG, "Never use implicit intent or explicit intent with component name for API request, use Intent.setPackage() instead.");
 
 		Log.d(TAG, "API invoked by " + pkg);
+
 		if (uid >= 0 && verifyRuntimePermission(context, uid, intent.getAction())) return null;
 
-		// Fallback verification for API v1 clients.
 		final Integer value = sVerifiedCallers.get(pkg);
 		if (value == null) return "Unauthorized client: " + pkg;
 		final int signature_hash = value;
-		if (signature_hash == 0) return null;	// 0 means already verified (cached)
+		if (signature_hash == 0) return null; // 0 means already verified (cached)
 
-		// Legacy verification is not supported inside Island without INTERACT_ACROSS_USERS on Android P+, due to MATCH_ANY_USER being restricted.
-		try { @SuppressLint("WrongConstant")
+		try {
+			@SuppressLint("WrongConstant")
 			final PackageInfo pkg_info = context.getPackageManager().getPackageInfo(pkg, GET_SIGNATURES
-				| (SDK_INT < P || Permissions.has(context, INTERACT_ACROSS_USERS) ? Hacks.MATCH_ANY_USER_AND_UNINSTALLED : MATCH_UNINSTALLED_PACKAGES));
+					| (SDK_INT < P || Permissions.has(context, INTERACT_ACROSS_USERS) ? Hacks.MATCH_ANY_USER_AND_UNINSTALLED : MATCH_UNINSTALLED_PACKAGES));
 			return verifySignature(pkg, signature_hash, pkg_info);
-		} catch (final PackageManager.NameNotFoundException e) { return "Permission denied or client package not found: " + pkg; }
+		} catch (final PackageManager.NameNotFoundException e) {
+			return "Permission denied or client package not found: " + pkg;
+		}
 	}
 
-	@Nullable private static String verifySignature(final String pkg, final int signature_hash, final PackageInfo pkg_info) {
+	@Nullable
+	private static String verifySignature(final String pkg, final int signature_hash, final PackageInfo pkg_info) {
 		for (final Signature signature : pkg_info.signatures)
 			if (signature.hashCode() != signature_hash) return "Package signature mismatch";
-		sVerifiedCallers.put(pkg, 0);		// No further signature check for this caller in the lifetime of this process.
+		sVerifiedCallers.put(pkg, 0); // Cache as verified.
 		return null;
 	}
 
@@ -96,15 +98,15 @@ class ApiDispatcher {
 		if (action == null) return false;
 		final String permission;
 		switch (action) {
-		case Api.latest.ACTION_FREEZE:
-		case Api.latest.ACTION_UNFREEZE:
-			permission = Api.latest.PERMISSION_FREEZE_PACKAGE;	break;
-		case Api.latest.ACTION_LAUNCH:
-			permission = Api.latest.PERMISSION_LAUNCH_PACKAGE;	break;
-		case Api.latest.ACTION_SUSPEND:
-		case Api.latest.ACTION_UNSUSPEND:
-			permission = Api.latest.PERMISSION_SUSPEND_PACKAGE;	break;
-		default: return false;
+			case Api.latest.ACTION_FREEZE:
+			case Api.latest.ACTION_UNFREEZE:
+				permission = Api.latest.PERMISSION_FREEZE_PACKAGE; break;
+			case Api.latest.ACTION_LAUNCH:
+				permission = Api.latest.PERMISSION_LAUNCH_PACKAGE; break;
+			case Api.latest.ACTION_SUSPEND:
+			case Api.latest.ACTION_UNSUSPEND:
+				permission = Api.latest.PERMISSION_SUSPEND_PACKAGE; break;
+			default: return false;
 		}
 		return context.checkPermission(permission, 0, uid) == PackageManager.PERMISSION_GRANTED;
 	}
@@ -115,17 +117,17 @@ class ApiDispatcher {
 		if (action == null) return "No action";
 		boolean positive = false;
 		switch (action) {
-		case Api.latest.ACTION_FREEZE: positive = true;		// Fall-through
-		case Api.latest.ACTION_UNFREEZE:
-			final boolean hidden = positive;
-			return processPackageUri(intent, null, pkg -> IslandManager.ensureAppHiddenState(context, pkg, hidden));
-		case Api.latest.ACTION_LAUNCH:
-			return launchActivity(context, intent);
-		case Api.latest.ACTION_SUSPEND: positive = true;	// Fall-through
-		case Api.latest.ACTION_UNSUSPEND:
-			final boolean suspended = positive;
-			return processPackageUri(intent, pkgs -> setPackageSuspended(context, pkgs, suspended), null);
-		default: return "Unsupported action: " + action;
+			case Api.latest.ACTION_FREEZE: positive = true; // fall-through
+			case Api.latest.ACTION_UNFREEZE:
+				final boolean hidden = positive;
+				return processPackageUri(intent, null, pkg -> IslandManager.ensureAppHiddenState(context, pkg, hidden));
+			case Api.latest.ACTION_LAUNCH:
+				return launchActivity(context, intent);
+			case Api.latest.ACTION_SUSPEND: positive = true; // fall-through
+			case Api.latest.ACTION_UNSUSPEND:
+				final boolean suspended = positive;
+				return processPackageUri(intent, pkgs -> setPackageSuspended(context, pkgs, suspended), null);
+			default: return "Unsupported action: " + action;
 		}
 	}
 
@@ -144,18 +146,18 @@ class ApiDispatcher {
 		if ("package".equals(scheme)) {
 			final String pkg = uri.getSchemeSpecificPart();
 			final String free_to_launch = IslandManager.ensureAppFreeToLaunch(context, pkg);
-			if (! free_to_launch.isEmpty()) return free_to_launch;
+			if (!free_to_launch.isEmpty()) return free_to_launch;
 			return IslandManager.launchApp(context, pkg, Process.myUserHandle()) ? null : "no_launcher_activity";
 		}
 
-		if (! "intent".equals(scheme)) return "Unsupported intent data scheme: " + intent;
+		if (!"intent".equals(scheme)) return "Unsupported intent data scheme: " + intent;
 		final Intent target;
 		try {
 			target = Intent.parseUri(uri.toString(), Intent.URI_INTENT_SCHEME);
 		} catch (final URISyntaxException e) {
 			return "Invalid data in intent: " + intent;
 		}
-		if (! (context instanceof Activity)) target.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		if (!(context instanceof Activity)) target.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		try {
 			context.startActivity(target);
 		} catch (final ActivityNotFoundException e) {
@@ -178,17 +180,17 @@ class ApiDispatcher {
 		final boolean single;
 		if (single = "package".equals(scheme)) pkgs = Stream.of(ssp);
 		else if ("packages".equals(scheme)) pkgs = Arrays.stream(ssp.split(",")).filter(Objects::nonNull).map(String::trim);
-		else return "Unsupported intent data scheme: " + intent;	// Should never happen
+		else return "Unsupported intent data scheme: " + intent;
 
 		try {
 			if (batch_dealer != null) return batch_dealer.apply(pkgs);
 
-			final List<String> failed_pkgs = pkgs.filter(t -> ! dealer.test(t)).collect(Collectors.toList());
+			final List<String> failed_pkgs = pkgs.filter(t -> !dealer.test(t)).collect(Collectors.toList());
 			if (failed_pkgs.isEmpty()) return null;
 			if (single) return "Failed: " + ssp;
 			return "Failed: " + failed_pkgs;
 		} catch (final RuntimeException e) {
-			return "Internal exception: " + e;		// Island might be have been deactivated or not set up yet.
+			return "Internal exception: " + e;
 		}
 	}
 
