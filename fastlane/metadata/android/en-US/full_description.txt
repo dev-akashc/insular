@@ -1,22 +1,31 @@
-Insular is a FLOSS fork of Island.
+Insular is a FLOSS fork of Island, maintained by Akash.
 With Insular, you can:<ul>
-<li>Isolate your Big Brother apps</li>
-<li>Clone and run multiple accounts simutaniuosly</li>
-<li>Freeze or archive apps and prevent any background behaviors</li>
-<li>Unfreeze apps on-demand with home screen shortcuts</li>
-<li>Re-freeze marked apps with one tap</li>
-<li>Hide apps</li>
-<li>Selectively enable (or disable) VPN for different group of apps</li>
-<li>Prohibit USB access to mitigate attacks with physical access</li></ul>
+<li>Isolate your Big Brother apps (e.g., Facebook, TikTok, etc.)</li>
+<li>Clone and run multiple accounts simultaneously for apps like WhatsApp, Telegram, and more</li>
+<li>Freeze or archive apps to block all background activities</li>
+<li>Unfreeze apps on-demand using home screen shortcuts</li>
+<li>Re-freeze selected apps with a single tap</li>
+<li>Hide apps completely from your main profile</li>
+<li>Selectively enable or disable VPN for different sets of apps</li>
+<li>Prohibit USB access to mitigate physical access attacks</li>
+<li>Run dual app environments (personal/work) with full separation</li>
+<li>Manage app permissions separately across profiles</li>
+<li>Disable system apps without root in the work profile</li>
+</ul>
+
 If your device is incompatible or not encrypted, you can skip this limitation manually. Please refer to <a href="https://forum.xda-developers.com/android/-t3366295">the XDA post</a> for details.
-To uninstall and remove Insular completely, please first "Destroy Insular" in Settings - Setup - Click the recycle-bin icon besides Insular. If you have already uninstalled Insular app, please "Remove work profile" in your device "Settings - Accounts".
+To uninstall and remove Insular completely, first "Destroy Insular" from **Settings → Setup** by clicking the recycle-bin icon beside Insular. If you already uninstalled the Insular app, go to your device **Settings → Accounts** and manually "Remove work profile".
 
 <b>PERMISSIONS</b><ul>
-<li>DEVICE-ADMIN: Device administrator privilege is required to create the Insular space (work profile), which serves as the fundamental functionality of Insular. It will be explicitly requested for your consent.</li>
-<li>PACKAGE_USAGE_STATS: Required to correctly recognize the running state of apps. It will be explicitly requested for your consent.</li></ul>
-We will never collect any data and Insular have no Internet permission. Please read our privacy policy for more details.
+<li>DEVICE-ADMIN: Required to create the Insular space (work profile), which is fundamental to how Insular operates. It will be explicitly requested for your consent.</li>
+<li>PACKAGE_USAGE_STATS: Required to detect and manage the running state of apps. It will also be requested explicitly.</li>
+</ul>
+
+We never collect any user data, and Insular does **not** request or use Internet permissions. Please read our privacy policy for more details.
 
 <b>Differences from Island</b><ul>
-<li>all blobs (gms, crashlytics, etc) are removed to comply with F-droid's policy</li>
-<li>Internet access of this app is removed because we just don't need it</li>
-All features are preserved and will be synced upon Island's updates
+<li>All proprietary blobs (Google Play services, Crashlytics, analytics, etc.) are removed to comply with F-Droid’s policy</li>
+<li>Internet access of this app is removed—because it simply isn't needed</li>
+<li>Fully reproducible and open-source—auditable by anyone</li>
+<li>All changes and future updates are maintained by Akash</li>
+</ul>
