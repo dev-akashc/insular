@@ -1,5 +1,7 @@
 package com.akash.island.installer;
 
+
+
 import static android.Manifest.permission.MANAGE_DOCUMENTS;
 import static android.Manifest.permission.REQUEST_INSTALL_PACKAGES;
 import static android.app.AppOpsManager.MODE_ALLOWED;
@@ -91,7 +93,6 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import kotlin.Unit;
-
 /**
  * App installer with following capabilities:
  * <ul>
@@ -105,7 +106,7 @@ public class AppInstallerActivity extends CallerAwareActivity {
 	private static final int STREAM_BUFFER_SIZE = 65536;
 	private static final String PREF_KEY_DIRECT_INSTALL_ALLOWED_CALLERS = "direct_install_allowed_callers";
 	private static final String SCHEME_PACKAGE = "package";
-	private static final String EXTRA_ORIGINATING_UID = "android.intent.extra.ORIGINATING_UID";		// Intent.EXTRA_ORIGINATING_UID
+	private static final String EXTRA_ORIGINATING_UID = "android.intent.extra.ORIGINATING_UID";       // Intent.EXTRA_ORIGINATING_UID
 
 	@Override protected void onCreate(@Nullable final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -123,7 +124,7 @@ public class AppInstallerActivity extends CallerAwareActivity {
 			return true;
 		}
 		final ApplicationInfo callerInfo = Apps.of(this).getAppInfo(caller);
-		if (SDK_INT >= O && callerInfo != null && ! isCallerQualified(callerInfo)) {	// Null if caller is not in the same user and has no launcher activity
+		if (SDK_INT >= O && callerInfo != null && ! isCallerQualified(callerInfo)) {
 			Log.w(TAG, "Reject installation for unqualified caller: " + caller);
 			return false;
 		}
@@ -152,48 +153,58 @@ public class AppInstallerActivity extends CallerAwareActivity {
 			install.setMode(CLONE);
 			install.setAppId(cloningAppId);
 			install.setAppLabel(Apps.of(this).getAppName(cloningAppId));
-		} else try {   // InputStream must be opened here synchronously, otherwise "SecurityException: Permission Denial".
-			final InputStream input = getContentResolver().openInputStream(data);
-			if (input != null) ApkAnalyzer.analyzeAsync(this, input, info -> {
-				if (info != null) {
-					final String appId = info.packageName;
-					if (info.splitNames != null) {
-						mInstallInfo.setMode(INHERIT);
-						mInstallInfo.setDetails(info.splitNames[0]);
-						mSessionId.thenAccept(id -> AppInstallationNotifier.cancel(this, id));  // Cancel the notification of previous session
-
-						performInstall(data, appId);
-
-						return Unit.INSTANCE;
-					} else try {
-						final ApplicationInfo current = getPackageManager().getApplicationInfo(appId, MATCH_UNINSTALLED_PACKAGES);
-						mInstallInfo.setMode((current.flags & ApplicationInfo.FLAG_INSTALLED) != 0 ? UPDATE : INSTALL);
-					} catch (final PackageManager.NameNotFoundException ignored) {}
-
-					final ApplicationInfo app = info.applicationInfo;
-					mInstallInfo.setAppId(appId);
-					mInstallInfo.setVersionName(info.versionName);
-					mInstallInfo.setAppLabel(app.loadLabel(getPackageManager())); // loadLabel() is overridden in ApplicationInfoEx
-					mInstallInfo.setTargetSdkVersion(app.targetSdkVersion);
-					mInstallInfo.setRequestedLegacyExternalStorage(hasRequestedLegacyExternalStorage(app));
+		} else try {
+			final InputStream originalInput = getContentResolver().openInputStream(data);
+			if (originalInput != null) {
+				final java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();
+				try {
+					org.springframework.util.StreamUtils.copy(originalInput, buffer);
+				} finally {
+					originalInput.close();
 				}
+				final byte[] apkBytes = buffer.toByteArray();
 
-				mSessionId.thenAccept(sessionId -> {
-					final CharSequence details = AppInstallationNotifier.onPackageInfoReady(this, sessionId,
-							mInstallInfo, Apps.of(this).getPackageInfo(install.getAppId(), MATCH_UNINSTALLED_PACKAGES));
-					mInstallInfo.setDetails(details);
+				ApkAnalyzer.analyzeAsync(this, new java.io.ByteArrayInputStream(apkBytes), info -> {
+					if (info != null) {
+						final String appId = info.packageName;
+						if (info.splitNames != null) {
+							mInstallInfo.setMode(INHERIT);
+							mInstallInfo.setDetails(info.splitNames[0]);
+							mSessionId.thenAccept(id -> AppInstallationNotifier.cancel(this, id));
 
-					AppInstallerStatusReceiver.createCallback(this, install, sessionId);  // Sync AppInstallInfo by updating PendingIntent
+							performInstall(data, appId);
 
-					try {
-						getPackageManager().getPackageInstaller().updateSessionAppLabel(sessionId, mInstallInfo.getAppLabel());
-					} catch (final SecurityException ignored) {}    // May throw "SecurityException: Caller has no access to session 0."
+							return Unit.INSTANCE;
+						} else try {
+							final ApplicationInfo current = getPackageManager().getApplicationInfo(appId, MATCH_UNINSTALLED_PACKAGES);
+							mInstallInfo.setMode((current.flags & ApplicationInfo.FLAG_INSTALLED) != 0 ? UPDATE : INSTALL);
+						} catch (final PackageManager.NameNotFoundException ignored) {}
+
+						final ApplicationInfo app = info.applicationInfo;
+						mInstallInfo.setAppId(appId);
+						mInstallInfo.setVersionName(info.versionName);
+						mInstallInfo.setAppLabel(app.loadLabel(getPackageManager()));
+						mInstallInfo.setTargetSdkVersion(app.targetSdkVersion);
+						mInstallInfo.setRequestedLegacyExternalStorage(hasRequestedLegacyExternalStorage(app));
+					}
+
+					mSessionId.thenAccept(sessionId -> {
+						final CharSequence details = AppInstallationNotifier.onPackageInfoReady(this, sessionId,
+								mInstallInfo, Apps.of(this).getPackageInfo(install.getAppId(), MATCH_UNINSTALLED_PACKAGES));
+						mInstallInfo.setDetails(details);
+
+						AppInstallerStatusReceiver.createCallback(this, install, sessionId);
+
+						try {
+							getPackageManager().getPackageInstaller().updateSessionAppLabel(sessionId, mInstallInfo.getAppLabel());
+						} catch (final SecurityException ignored) {}
+					});
+					return Unit.INSTANCE;
 				});
-				return Unit.INSTANCE;
-			});
+			}
 		} catch (final IOException | SecurityException e) { Log.w(TAG, "Error opening " + data, e); }
 
-		if (! silent_install) {     // PackageInstaller requires confirmation, thus no need for pre-confirmation on our side.
+		if (! silent_install) {
 			performInstall(data, null);
 			return true;
 		}
@@ -210,7 +221,9 @@ public class AppInstallerActivity extends CallerAwareActivity {
 				return false;
 			}
 		}
-
+		return true;
+	}
+}
 		//noinspection deprecation
 		if (caller.equals(getPackageName()) || requireNonNull(PreferenceManager.getDefaultSharedPreferences(this)
 				.getStringSet(PREF_KEY_DIRECT_INSTALL_ALLOWED_CALLERS, Collections.emptySet())).contains(caller)) {
