@@ -53,13 +53,18 @@ class DelegatedScopeAuthorization : RestrictionsReceiver() {
             return DelegationManager.removeAuthorizedDelegation(DevicePolicies(context), pkg, user, delegation)
         if (requestType != ApiConstants.TYPE_DELEGATION) return logAndToast(context, pkg, "Unsupported request type: $requestType")
 
-        // Use meta-data instead of restrictions XML declaration, to avoid declared restriction being unintentionally recognized by other DPC.
-        val declaredDelegations = context.packageManager.getApplicationInfo(pkg, GET_META_DATA)
+        val declaredDelegations = try {
+            context.packageManager.getApplicationInfo(pkg, GET_META_DATA)
                 .metaData?.getString(ApiConstants.TYPE_DELEGATION) ?: ""
+        } catch (e: Exception) { // Catching generic Exception for robustness in case getApplicationInfo fails
+            Log.w(TAG, "Error getting application info for package $pkg: ${e.message}")
+            return logAndToast(context, pkg, "Failed to get declared delegations for package")
+        }
+
         if (! declaredDelegations.split(',').contains(delegation))
             return logAndToast(context, pkg, "delegation is not declared in meta-data")
         val delegationWithLabel = getSupportedDelegatedScope(delegation)
-                ?: return logAndToast(context, pkg, "Unsupported delegation (specified by requestId): $delegation")
+            ?: return logAndToast(context, pkg, "Unsupported delegation (specified by requestId): $delegation")
 
         if (DelegationManager.isDelegationAuthorized(DevicePolicies(context), pkg, user, delegation))
             return notifyAuthorizationResult(context, pkg, requestId, RESULT_APPROVED)
@@ -69,7 +74,7 @@ class DelegatedScopeAuthorization : RestrictionsReceiver() {
             return Toast.makeText(context, R.string.prompt_unblock_notification_for_auth_request, Toast.LENGTH_LONG).show()
         }
         val intent = Intent(context, javaClass).setData(Uri.parse("request:$requestId"))
-                .putExtra(EXTRA_PACKAGE_NAME, pkg).putExtra(EXTRA_USER, user).putExtra(REQUEST_KEY_DATA, delegation)
+            .putExtra(EXTRA_PACKAGE_NAME, pkg).putExtra(EXTRA_USER, user).putExtra(REQUEST_KEY_DATA, delegation)
         val authorize = PendingIntent.getBroadcast(context, 0, intent.setAction(ACTION_AUTHORIZE), FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)
         val refuse = PendingIntent.getBroadcast(context, 0, intent.setAction(ACTION_REFUSE), FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)
         @Suppress("DEPRECATION")
@@ -101,7 +106,7 @@ class DelegatedScopeAuthorization : RestrictionsReceiver() {
 
     private fun notifyAuthorizationResult(context: Context, pkg: String, requestId: String?, result: Int) {
         (context.getSystemService(RESTRICTIONS_SERVICE) as RestrictionsManager).notifyPermissionResponse(pkg,
-                PersistableBundle(2).apply { putString(REQUEST_KEY_ID, requestId); putInt(RESPONSE_KEY_RESULT, result) })
+            PersistableBundle(2).apply { putString(REQUEST_KEY_ID, requestId); putInt(RESPONSE_KEY_RESULT, result) })
     }
 
     private fun getSupportedDelegatedScope(delegation: String): Pair<String, Int>? {
@@ -123,7 +128,6 @@ class DelegatedScopeAuthorization : RestrictionsReceiver() {
         val context = context(); val policies = DevicePolicies(context)
         if (policies.isProfileOrDeviceOwnerOnCallingUser) try {
             policies.execute(DevicePolicyManager::setRestrictionsProvider, ComponentName(context, DelegatedScopeAuthorization::class.java))
-            // This allows us (thus API caller) to call DevicePolicyManager APIs with null as admin component argument.
             if (SDK_INT >= O) policies.execute(DevicePolicyManager::setDelegatedScopes, context.packageName, listOf(DELEGATION_PACKAGE_ACCESS))
             context.packageManager.setComponentEnabledSetting(ComponentName(context, javaClass), COMPONENT_ENABLED_STATE_DISABLED, DONT_KILL_APP)
         } catch (e: RuntimeException) {
