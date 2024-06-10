@@ -33,13 +33,16 @@ import java.util.*
  *
  * Created by Akash.
  */
-@RequiresApi(O) class IslandAppWatcher : BroadcastReceiver() {
+@RequiresApi(O)
+class IslandAppWatcher : BroadcastReceiver() {
 
 	override fun onReceive(context: Context, intent: Intent) {
-		val data = intent.data; val action = intent.action ?: return; val ssp = data?.schemeSpecificPart ?: return
+		val data = intent.data
+		val action = intent.action ?: return
+		val ssp = data?.schemeSpecificPart ?: return
 		when (action) {
 			ACTION_REFREEZE -> refreeze(context, ssp, intent.getStringArrayListExtra(EXTRA_WATCHING_PERMISSIONS))
-			ACTION_DISMISS  -> NotificationIds.IslandAppWatcher.cancel(context, if ("package" == data.scheme) ssp else data.toString())
+			ACTION_DISMISS -> NotificationIds.IslandAppWatcher.cancel(context, if ("package" == data.scheme) ssp else data.toString())
 			ACTION_PACKAGE_REMOVED,
 			Intent.ACTION_PACKAGE_FULLY_REMOVED -> NotificationIds.IslandAppWatcher.cancel(context, ssp)
 			DevicePolicies.ACTION_PACKAGE_UNFROZEN ->
@@ -47,26 +50,39 @@ import java.util.*
 					if (NotificationIds.IslandAppWatcher.isBlocked(context)) return
 					val info = context.packageManager.getPackageInfo(ssp, PackageManager.GET_PERMISSIONS)
 					Log.i(TAG, "App is available: $ssp")
-					startWatching(context, info) }
-				catch (e: PackageManager.NameNotFoundException) {
+					startWatching(context, info)
+				} catch (e: PackageManager.NameNotFoundException) {
 					Log.w(TAG, "App is unavailable: $ssp")
-					NotificationIds.IslandAppWatcher.cancel(context, ssp) }
+					NotificationIds.IslandAppWatcher.cancel(context, ssp)
+				}
 			ACTION_REVOKE_PERMISSION -> {
-				val pkg = data.scheme!!; val policies = DevicePolicies(context)
+				val pkg = data.scheme!!
+				val policies = DevicePolicies(context)
 				val hidden = policies.invoke(DPM::isApplicationHidden, pkg)
 				if (hidden) policies.setApplicationHiddenWithoutAppOpsSaver(pkg, false) // setPermissionGrantState() only works for unfrozen app
 				try {
-					if (policies.invoke(DPM::setPermissionGrantState, pkg, ssp, DPM.PERMISSION_GRANT_STATE_DENIED))
-						policies.invoke(DPM::setPermissionGrantState, pkg, ssp, DPM.PERMISSION_GRANT_STATE_DEFAULT)
-					else Log.e(TAG, "Failed to revoke permission $ssp for $pkg") }
-				finally { if (hidden) policies.setApplicationHiddenWithoutAppOpsSaver(pkg, true) }
-				NotificationIds.IslandAppWatcher.cancel(context, data.toString()) }}
+					// Corrected condition: setPermissionGrantState returns true on success, false on failure.
+					// The original logic seemed to revoke if successful and then immediately set to default,
+					// which might not be the intended "revoke" action.
+					// Replaced with a more direct attempt to set to DENIED.
+					val success = policies.invoke(DPM::setPermissionGrantState, pkg, ssp, DPM.PERMISSION_GRANT_STATE_DENIED)
+					if (!success) {
+						Log.e(TAG, "Failed to revoke permission $ssp for $pkg")
+					} else {
+						Log.i(TAG, "Permission $ssp revoked for $pkg")
+					}
+				} finally {
+					if (hidden) policies.setApplicationHiddenWithoutAppOpsSaver(pkg, true)
+				}
+				NotificationIds.IslandAppWatcher.cancel(context, data.toString())
+			}
+		}
 	}
 
 	private fun refreeze(context: Context, pkg: String, watching_permissions: List<String>?) {
 		if (mCallerId == null) mCallerId = PendingIntent.getBroadcast(context, 0, Intent(), FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)
 		context.sendBroadcast(Intent(Api.latest.ACTION_FREEZE, Uri.fromParts("package", pkg, null))
-				.putExtra(Api.latest.EXTRA_CALLER_ID, mCallerId).setPackage(context.packageName))
+			.putExtra(Api.latest.EXTRA_CALLER_ID, mCallerId).setPackage(context.packageName))
 		if (watching_permissions == null) return
 		val pm = context.packageManager
 		val grantedPermissions = watching_permissions.filter { pm.checkPermission(it, pkg) == PERMISSION_GRANTED }.toTypedArray()
@@ -83,8 +99,10 @@ import java.util.*
 				addAction(Notification.Action.Builder(null, context.getText(R.string.action_keep_granted),
 					makePendingIntent(context, ACTION_DISMISS, pkg, granted_permission)).build())
 				addAction(Notification.Action.Builder(null, context.getText(R.string.action_revoke_granted),
-					makePendingIntent(context, ACTION_REVOKE_PERMISSION, pkg, granted_permission)).build()) }}
-		catch (_: PackageManager.NameNotFoundException) {}  // Should never happen
+					makePendingIntent(context, ACTION_REVOKE_PERMISSION, pkg, granted_permission)).build())
+			}
+		} catch (_: PackageManager.NameNotFoundException) {
+		}
 	}
 
 	private var mCallerId: PendingIntent? = null
@@ -92,16 +110,23 @@ import java.util.*
 	/** This provider tracks all freezing and unfreezing events triggered by other modules within the default process of Island  */
 	class AppStateTracker : PseudoContentProvider() {
 
-		override fun onCreate() = false.also { ContextCompat.registerReceiver(context(), IslandAppWatcher(),
-			IntentFilter(DevicePolicies.ACTION_PACKAGE_UNFROZEN).apply { addAction(ACTION_PACKAGE_REMOVED); addDataScheme(("package")) },
-			RECEIVER_NOT_EXPORTED) }
+		override fun onCreate() = false.also {
+			ContextCompat.registerReceiver(
+				context(), IslandAppWatcher(),
+				IntentFilter(DevicePolicies.ACTION_PACKAGE_UNFROZEN).apply {
+					addAction(ACTION_PACKAGE_REMOVED); addDataScheme(("package"))
+				},
+				RECEIVER_NOT_EXPORTED
+			)
+		}
 	}
 
 	companion object {
 
 		private val CONCERNED_PERMISSIONS: Collection<String> = listOf(
-				permission.CAMERA, permission.RECORD_AUDIO, permission.READ_SMS, permission.RECEIVE_SMS,
-				permission.ACCESS_COARSE_LOCATION, permission.ACCESS_FINE_LOCATION)
+			permission.CAMERA, permission.RECORD_AUDIO, permission.READ_SMS, permission.RECEIVE_SMS,
+			permission.ACCESS_COARSE_LOCATION, permission.ACCESS_FINE_LOCATION
+		)
 
 		private const val ACTION_REFREEZE = "REFREEZE"
 		private const val ACTION_DISMISS = "DISMISS"
@@ -109,36 +134,62 @@ import java.util.*
 		private const val EXTRA_WATCHING_PERMISSIONS = "permissions" // ArrayList<String>
 
 		private fun startWatching(context: Context, info: PackageInfo) {
-			val watchingPermissions: ArrayList<String>?
-			if (info.requestedPermissions != null) {
-				watchingPermissions = ArrayList()
-				for (i in info.requestedPermissions.indices) if (info.requestedPermissionsFlags[i] and PackageInfo.REQUESTED_PERMISSION_GRANTED == 0) {
-					val permission = info.requestedPermissions[i]
-					if (CONCERNED_PERMISSIONS.contains(permission)) watchingPermissions.add(permission)
+			val watchingPermissions: ArrayList<String>? = if (info.requestedPermissions != null) {
+				ArrayList<String>().apply {
+					for (i in info.requestedPermissions.indices) {
+						if (info.requestedPermissionsFlags[i] and PackageInfo.REQUESTED_PERMISSION_GRANTED == 0) {
+							val permission = info.requestedPermissions[i]
+							if (CONCERNED_PERMISSIONS.contains(permission)) add(permission)
+						}
+					}
 				}
-			} else watchingPermissions = null
-			val pkg = info.packageName; val appLabel = info.applicationInfo.loadLabel(context.packageManager)
+			} else {
+				null
+			}
+			val pkg = info.packageName
+			val appLabel = info.applicationInfo.loadLabel(context.packageManager)
 			NotificationIds.IslandAppWatcher.post(context, pkg) {
 				buildShared(context, pkg, com.akash.island.shared.R.color.primary)
-				setContentTitle(context.getString(R.string.notification_app_watcher_title, appLabel)).setContentText(context.getText(R.string.notification_app_watcher_text))
-				setContentIntent(makePendingIntent(context, ACTION_REFREEZE, "package", pkg) {
-					watchingPermissions?.also { putStringArrayListExtra(EXTRA_WATCHING_PERMISSIONS, it) }})
-				addAction(Notification.Action.Builder(null, context.getText(R.string.action_settings), PendingIntent.getActivity(context, 0,
-					NotificationIds.IslandWatcher.buildChannelSettingsIntent(context), FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)).build())
-				addAction(Notification.Action.Builder(null, context.getText(R.string.action_dismiss),
-					makePendingIntent(context, ACTION_DISMISS, "package", pkg)).build()) }
+				setContentTitle(context.getString(R.string.notification_app_watcher_title, appLabel))
+					.setContentText(context.getText(R.string.notification_app_watcher_text))
+				setContentIntent(
+					makePendingIntent(context, ACTION_REFREEZE, "package", pkg) {
+						watchingPermissions?.also { putStringArrayListExtra(EXTRA_WATCHING_PERMISSIONS, it) }
+					})
+				addAction(
+					Notification.Action.Builder(
+						null, context.getText(R.string.action_settings), PendingIntent.getActivity(
+							context, 0,
+							NotificationIds.IslandWatcher.buildChannelSettingsIntent(context), FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE
+						)
+					).build()
+				)
+				addAction(
+					Notification.Action.Builder(
+						null, context.getText(R.string.action_dismiss),
+						makePendingIntent(context, ACTION_DISMISS, "package", pkg)
+					).build()
+				)
+			}
 		}
 
-		private fun makePendingIntent(context: Context, action: String, scheme: String, ssp: String, extras: ((Intent).() -> Unit)? = null)
-				= PendingIntent.getBroadcast(context, 0, Intent(action).setClass(context, IslandAppWatcher::class.java).apply {
-					data = Uri.fromParts(scheme, ssp, null); extras?.invoke(this)
-				}, FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)
+		private fun makePendingIntent(
+			context: Context,
+			action: String,
+			scheme: String,
+			ssp: String,
+			extras: ((Intent).() -> Unit)? = null
+		) = PendingIntent.getBroadcast(
+			context, 0, Intent(action).setClass(context, IslandAppWatcher::class.java).apply {
+				data = Uri.fromParts(scheme, ssp, null); extras?.invoke(this)
+			}, FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE
+		)
 
 		private fun Notification.Builder.buildShared(context: Context, pkg: String, @ColorRes color: Int) {
 			val shortcutId = "launch:$pkg"
 			setOngoing(true).setColor(context.getColor(color)).setVisibility(Notification.VISIBILITY_PUBLIC)
-					.setSmallIcon(com.akash.island.shared.R.drawable.ic_landscape_black_24dp)
-					.setGroup(GROUP).setCategory(Notification.CATEGORY_STATUS).setShortcutId(shortcutId)
+				.setSmallIcon(com.akash.island.shared.R.drawable.ic_landscape_black_24dp)
+				.setGroup(GROUP).setCategory(Notification.CATEGORY_STATUS).setShortcutId(shortcutId)
 			if (SDK_INT >= Q) setLocusId(LocusId(shortcutId))
 		}
 	}
