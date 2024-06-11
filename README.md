@@ -74,7 +74,3 @@ Insular requests only the necessary permissions:
 
 The project respects user privacy and does not collect personal data. For details, see the privacy policy.
 
-# Contribution
-Contributions such as bug fixes, minor improvements, translations, and feature requests are welcome via pull requests.
-For major improvements or new API ideas, please open an issue to discuss before implementation.
-The project encourages collaboration to expand and improve open Device Policy Controller capabilities for the Android community.
